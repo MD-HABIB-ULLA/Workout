@@ -1,0 +1,154 @@
+import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { IoMenu } from "react-icons/io5";
+import { RxCross2 } from "react-icons/rx";
+
+const Navber = () => {
+  const [openNav, setOpenNav] = useState(false);
+
+  const toggleDropdown = () => {
+    setOpenNav(!openNav);
+  };
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const list = (
+    <>
+      {" "}
+      <li>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `text-base font-bold text-white   uppercase ${
+              isActive
+                ? "   inter border-2 border-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
+                : "md:text-white"
+            } `
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/trainer"
+          className={({ isActive }) =>
+            `text-base font-bold text-white   uppercase ${
+              isActive
+                ? "   inter border-2 border-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
+                : "md:text-white"
+            } `
+          }
+        >
+          Trainer
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/classes"
+          className={({ isActive }) =>
+            `text-base font-bold text-white   uppercase ${
+              isActive
+                ? "   inter border-2 border-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
+                : "md:text-white"
+            } `
+          }
+        >
+          Classes
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/dashboard"
+          className={({ isActive }) =>
+            `text-base font-bold text-white   uppercase ${
+              isActive
+                ? "   inter border-2 border-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
+                : "md:text-white"
+            } `
+          }
+        >
+          Dashboard
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/community"
+          className={({ isActive }) =>
+            `text-base font-bold text-white   uppercase ${
+              isActive
+                ? "   inter border-2 border-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
+                : "md:text-white"
+            } `
+          }
+        >
+          Community
+        </NavLink>
+      </li>
+    </>
+  );
+  return (
+    <>
+      {" "}
+      <div
+        className={`${
+          !scrolled
+            ? " duration-500"
+            : "bg-black bg-opacity-40 backdrop-blur-md duration-500 text-white  "
+        } w-full fixed z-10    `}
+      >
+        <nav className="">
+          <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+            <img
+              src="https://i.ibb.co/8bY004Y/2024-05-26-00-05-25-Window-removebg-preview.png"
+              className="h-12"
+              alt=""
+            />
+            <button
+              type="button"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden  focus:outline-none"
+              aria-controls="mega-menu-full"
+              aria-expanded={openNav}
+              onClick={toggleDropdown}
+            >
+              <span className="sr-only">Open main menu</span>
+              {openNav ? (
+                <RxCross2 className="text-white text-3xl"></RxCross2>
+              ) : (
+                <IoMenu className="text-white text-3xl"></IoMenu>
+              )}
+            </button>
+            <div
+              className={`items-center justify-between rounded-lg duration-500   font-medium w-full md:flex md:bg-transparent bg-gray-600  md:w-auto md:order-1 ${
+                openNav ? "block " : "hidden"
+              }`}
+              id="mega-menu-full"
+            >
+              <ul className="flex flex-col gap-3 rounded-lg p-4 md:p-0 mt-4md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
+                {list}
+              </ul>
+              <Link to={'/login'}>
+                <button className=" md:block hidden ml-5 px-4 p-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                  {" "}
+                  Login
+                </button>
+              </Link>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </>
+  );
+};
+
+export default Navber;
