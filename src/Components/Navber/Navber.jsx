@@ -2,9 +2,13 @@ import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
+import useAuth from "../../Hooks/useAuth";
+import Avater from "../Avater/Avater";
 
 const Navber = () => {
   const [openNav, setOpenNav] = useState(false);
+  const { user, loading } = useAuth();
+  
 
   const toggleDropdown = () => {
     setOpenNav(!openNav);
@@ -41,7 +45,7 @@ const Navber = () => {
       </li>
       <li>
         <NavLink
-          to="/trainer"
+          to="/trainers"
           className={({ isActive }) =>
             `text-base font-bold text-white   uppercase ${
               isActive
@@ -50,7 +54,7 @@ const Navber = () => {
             } `
           }
         >
-          Trainer
+          Trainers
         </NavLink>
       </li>
       <li>
@@ -114,20 +118,36 @@ const Navber = () => {
               className="h-12"
               alt=""
             />
-            <button
-              type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden  focus:outline-none"
-              aria-controls="mega-menu-full"
-              aria-expanded={openNav}
-              onClick={toggleDropdown}
-            >
-              <span className="sr-only">Open main menu</span>
-              {openNav ? (
-                <RxCross2 className="text-white text-3xl"></RxCross2>
-              ) : (
-                <IoMenu className="text-white text-3xl"></IoMenu>
-              )}
-            </button>
+
+            <div className="flex items-center">
+              <div className="md:hidden block">
+                {user?.photoURL ? (
+                  <Avater />
+                ) : (
+                  <Link to={"/login"}>
+                    <button className="  px-4 p-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                      {" "}
+                      Login
+                    </button>
+                  </Link>
+                )}
+              </div>
+              <button
+                type="button"
+                className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden  focus:outline-none"
+                aria-controls="mega-menu-full"
+                aria-expanded={openNav}
+                onClick={toggleDropdown}
+              >
+                <span className="sr-only">Open main menu</span>
+                {openNav ? (
+                  <RxCross2 className="text-white text-3xl"></RxCross2>
+                ) : (
+                  <IoMenu className="text-white text-3xl"></IoMenu>
+                )}
+              </button>
+            </div>
+
             <div
               className={`items-center justify-between rounded-lg duration-500   font-medium w-full md:flex md:bg-transparent bg-gray-600  md:w-auto md:order-1 ${
                 openNav ? "block " : "hidden"
@@ -137,12 +157,23 @@ const Navber = () => {
               <ul className="flex flex-col gap-3 rounded-lg p-4 md:p-0 mt-4md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
                 {list}
               </ul>
-              <Link to={'/login'}>
-                <button className=" md:block hidden ml-5 px-4 p-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
-                  {" "}
-                  Login
-                </button>
-              </Link>
+              <div className="hidden md:block ml-3">
+                {loading ? (
+                  <button className="px-4 py-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                    <div className="flex items-center justify-center">
+                      <div className="w-5 h-5 border-2 border-t-blue-400 animate-spin rounded-full"></div>
+                    </div>
+                  </button>
+                ) : user ? (
+                  <Avater />
+                ) : (
+                  <Link to="/login">
+                    <button className="px-4 py-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                      Login
+                    </button>
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
         </nav>

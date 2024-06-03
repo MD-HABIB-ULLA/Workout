@@ -4,7 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 const CarouselBanner = () => {
   return (
     <div className="relative">
-      <h1 className="lg:block hidden  uppercase text-6xl mt-0 absolute rotate-90 -right-20 outline-text-gym top-1/2 z-30">
+      <h1 className="lg:block hidden  uppercase text-6xl mt-0 absolute rotate-90 -right-20 outline-text-gym top-1/2 z-2">
         workout
       </h1>
       <Carousel

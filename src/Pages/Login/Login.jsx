@@ -1,6 +1,49 @@
-import { Link } from "react-router-dom";
-
+import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { useForm } from "react-hook-form";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Googlebtn from "../../Components/GoogleBtn/Googlebtn";
+import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
 const Login = () => {
+  window.scrollTo(0, 0);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { signOutUser, signInUser, setLoading } = useAuth();
+
+  // show password and hide logic
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  //  react hook form
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data, e) => {
+    console.log(data);
+    signOutUser();
+    signInUser(data.email, data.password)
+      .then((result) => {
+        console.log(result);
+        toast.success("Login sucsessful");
+        e.target.reset();
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        if (error.code === "auth/invalid-credential") {
+          toast.error("Invalid email or password. Please try again.");
+          setLoading(false);
+        }
+      });
+    console.log(data);
+  };
+
   return (
     <div
       style={{
@@ -9,7 +52,10 @@ const Login = () => {
       }}
       className="bg-cover bg-center min-h-screen p-10"
     >
-      <div className="md:flex h-full w-full justify-end lg:pr-36 container m-auto">
+      <Helmet>
+        <title>Workout - Login</title>
+      </Helmet>
+      <div className="md:flex h-full w-full justify-center container m-auto">
         <div className="">
           <section className="">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -18,7 +64,11 @@ const Login = () => {
                   <h1 className="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl">
                     Sign in to your account
                   </h1>
-                  <form className="space-y-4 md:space-y-6" action="#">
+                  <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="space-y-4 md:space-y-6"
+                    action="#"
+                  >
                     <div>
                       <label
                         htmlFor="email"
@@ -29,11 +79,14 @@ const Login = () => {
                       <input
                         type="email"
                         name="email"
+                        {...register("email", { required: true })}
                         id="email"
-                        className="bg-gray-50 border border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="name@company.com"
-                        required
+                        className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                        placeholder="Enter your email"
                       />
+                      {errors.email && (
+                        <span className="text-red-500">Email is required</span>
+                      )}
                     </div>
                     <div>
                       <label
@@ -42,40 +95,43 @@ const Login = () => {
                       >
                         Password
                       </label>
-                      <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        placeholder="••••••••"
-                        className="bg-gray-50 border border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        required
-                      />
-                    </div>
+                      <div className="relative">
+                        <input
+                          type={showPassword ? "text" : "password"}
+                          name="password"
+                          id="password"
+                          {...register("password", { required: true })}
+                          placeholder="Enter a strong password"
+                          className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    
+                          autoComplete="current-password" // Added autocomplete attribute
+                        />
+                        <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
+                          <button
+                            type="button" // Ensure this button does not submit the form
+                            onClick={togglePasswordVisibility}
+                            className="text-black hover:text-gray-700 focus:outline-none"
+                          >
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                          </button>
+                        </div>
+                      </div>
 
+                      {errors.password && (
+                        <span className="text-red-500">Password is required</span>
+                      )}
+                    </div>
                     <button
                       type="submit"
-                      className="w-full text-white font-bold bg-[#007BFF] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 headline1  rounded-lg text-sm px-5 py-2.5 text-center"
+                      className="w-full text-white font-bold bg-[#007BFF] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 headline1 rounded-lg text-sm px-5 py-2.5 text-center"
                     >
-                      Sign in
+                      Login
                     </button>
                   </form>
-                  <div className="flex flex-col w-full ">
-                    <div className="divider ">OR</div>
-                    <div className="flex justify-center ">
-                      {" "}
-                      <div className="bg-white rounded-full p-1 flex gap-1 text-black items-center pr-3">
-                        <img
-                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjzC2JyZDZ_RaWf0qp11K0lcvB6b6kYNMoqtZAQ9hiPZ4cTIOB"
-                          alt=""
-                          className="h-10 rounded-full "
-                        />
-                        <p className="font-bold">Google</p>
-                      </div>
-                    </div>
-                  </div>
+                  <Googlebtn />
                   <div className="text-sm font-light text-white">
                     Don’t have an account yet?
-                    <Link 
+                    <Link
                       to={"/signup"}
                       className="font-medium text-info ml-1 hover:underline"
                     >

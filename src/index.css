@@ -4,6 +4,7 @@
 
 
 
+
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #F0F0F0;
@@ -99,8 +100,15 @@ h3,
   transition: right 0.5s ease;
   white-space: nowrap;
   padding: 0 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .image-list-item:hover .title-bar {
   right: 0;
+}
+
+.swiper-scrollbar{
+  display: none;
 }

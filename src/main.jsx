@@ -1,40 +1,22 @@
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import "./index.css";
+import "flowbite";
 import React from "react";
-import Main from "./Layout/Main";
-import Home from "./Pages/Home/Home";
-import Login from "./Pages/Login/Login";
-import Signup from "./Pages/Signup/Signup";
-
-
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Main />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/signup",
-        element: <Signup />,
-      },
-    ],
-  },
-]);
+import { HelmetProvider } from "react-helmet-async";
+import router from "./Router/Router";
+import AuthProvider from "./Provider/AuthProvider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-
-      {" "}
-      <RouterProvider router={router} />
-
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <HelmetProvider>
+          <RouterProvider router={router} />
+        </HelmetProvider>
+      </AuthProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
