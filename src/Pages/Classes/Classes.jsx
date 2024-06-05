@@ -6,6 +6,7 @@ import ReactLoading from "react-loading";
 import { Pagination, Stack } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Classes = () => {
   const [page, setPage] = useState(1);
@@ -35,6 +36,9 @@ const Classes = () => {
   window.scrollTo(0, 0);
   return (
     <div className="min-h-screen  bg-[#141414]">
+      <Helmet>
+        <title>Workout - Home</title>
+      </Helmet>
       <div className="relative pt-28 pb-10 w-full space-y-4">
         <h1 className="lg:text-6xl md:text-5xl text-2xl text-center text-white uppercase">
           Our
