@@ -5,11 +5,12 @@ import Login from "../Pages/Login/Login";
 import Home from "../Pages/Home/Home";
 import Signup from "../Pages/Signup/Signup";
 import TrainerDetailsPage from "../Pages/TrainerDetailsPage/TrainerDetailsPage ";
-import BecomeTrainerPage from "../Pages/TrainerDetailsPage/BecomeTrainerPage";
+
 import Trainers from "../Pages/Trainers/Trainers";
 import Classes from "../Pages/Classes/Classes";
 import TrainerBookPage from "../Pages/TrainerBookpage/TrainerBookPage";
 import PaymentPage from "../Pages/PaymentPage/PaymentPage";
+import BeTrainerForm from "../Pages/TrainerDetailsPage/BecomeTrainerPage";
 
 
 const Router = createBrowserRouter([
@@ -35,7 +36,7 @@ const Router = createBrowserRouter([
         },
         {
           path: "/become-a-trainer",
-          element: <BecomeTrainerPage />,
+          element: <BeTrainerForm />,
         },
         {
           path: "/trainers",

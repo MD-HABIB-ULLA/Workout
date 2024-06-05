@@ -2,6 +2,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import useAxiosPablic from "../../Hooks/useAxiosPpablic";
 import { useQuery } from "@tanstack/react-query";
 import ReactLoading from "react-loading";
+import { Helmet } from "react-helmet";
 
 const TrainerDetailsPage = () => {
   window.scrollTo(0, 0);
@@ -27,6 +28,9 @@ const TrainerDetailsPage = () => {
 
   return (
     <div className="min-h-screen  bg-[#141414]">
+          <Helmet>
+        <title>Workout - Trainer Details Page</title>
+      </Helmet>
       <div className="">
         <div className="relative pt-28 pb-10 w-full space-y-4">
           <h1 className="lg:text-6xl md:text-5xl text-2xl text-center text-white uppercase">
@@ -80,7 +84,7 @@ const TrainerDetailsPage = () => {
               </div>
             </section>
             <div className="flex justify-center mt-10">
-              <button className="relative border hover:border-sky-600 duration-500 group cursor-pointer text-sky-50  overflow-hidden h-14 w-56 rounded-md bg-sky-800 p-2 flex justify-center items-center font-extrabold">
+              <button onClick={handleBecomeTrainerClick} className="relative border hover:border-sky-600 duration-500 group cursor-pointer text-sky-50  overflow-hidden h-14 w-56 rounded-md bg-sky-800 p-2 flex justify-center items-center font-extrabold">
                 <div className="absolute z-10 w-48 h-48 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-900 delay-150 group-hover:delay-75"></div>
                 <div className="absolute z-10 w-40 h-40 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-800 delay-150 group-hover:delay-100"></div>
                 <div className="absolute z-10 w-32 h-32 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-700 delay-150 group-hover:delay-150"></div>

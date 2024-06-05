@@ -109,7 +109,7 @@ const Navber = () => {
           !scrolled
             ? " duration-500"
             : "bg-black bg-opacity-40 backdrop-blur-md duration-500 text-white  "
-        } w-full fixed z-10    `}
+        } w-full fixed z-50    `}
       >
         <nav className="">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">

@@ -66,6 +66,7 @@ const TrainerBookPage = () => {
     slotName: bookingSlot,
     packageName: selectedCardPackage,
     price: selectedCardPrice,
+    class : selectedClass,
     user,
   };
   const handleClick = (index, price, name) => {

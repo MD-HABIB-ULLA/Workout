@@ -14,6 +14,7 @@ const CheckOutForm = () => {
   const axiosPublic = useAxiosPablic();
   const stripe = useStripe();
   const navigate = useNavigate()
+  console.log(paymentData)
   useEffect(() => {
     if (paymentData.price > 0) {
       axiosPublic
@@ -71,6 +72,7 @@ const CheckOutForm = () => {
         const payment = {
           email: paymentData.user.email,
           price: paymentData.price,
+          class : paymentData.class,
           transactionId: paymentIntent.id,
           date: new Date(), // utc date convert. use moment js to
           bookingId: paymentData._id,
@@ -86,7 +88,7 @@ const CheckOutForm = () => {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Thank you for the taka paisa",
+            title: "Payment Successful",
             showConfirmButton: false,
             timer: 1500,
           });
