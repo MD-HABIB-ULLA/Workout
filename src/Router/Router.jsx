@@ -8,6 +8,8 @@ import TrainerDetailsPage from "../Pages/TrainerDetailsPage/TrainerDetailsPage "
 import BecomeTrainerPage from "../Pages/TrainerDetailsPage/BecomeTrainerPage";
 import Trainers from "../Pages/Trainers/Trainers";
 import Classes from "../Pages/Classes/Classes";
+import TrainerBookPage from "../Pages/TrainerBookpage/TrainerBookPage";
+import PaymentPage from "../Pages/PaymentPage/PaymentPage";
 
 
 const Router = createBrowserRouter([
@@ -42,6 +44,18 @@ const Router = createBrowserRouter([
         {
           path: "/classes",
           element: <Classes />,
+        },
+        {
+          path: "/trainers/:id",
+          element: <TrainerDetailsPage />,
+        },
+        {
+          path: "/trainerbooking",
+          element: <TrainerBookPage />,
+        },
+        {
+          path: "/payment",
+          element: <PaymentPage />,
         },
       ],
     },

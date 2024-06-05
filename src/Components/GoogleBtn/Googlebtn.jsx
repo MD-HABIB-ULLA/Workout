@@ -19,13 +19,9 @@ const Googlebtn = () => {
           };
           axiosPublic
             .post("/users", userInfo)
-            .then((res) => {
-              if (res.data.insertedId) {
-                toast.success("Signin successful ");
-                navigate(location?.state ? location.state : "/");
-              } else {
-                navigate("/");
-              }
+            .then(() => {
+              toast.success("Signin successful ");
+              navigate(location?.state ? location.state : "/");
             })
             .catch((err) => console.log(err));
         }

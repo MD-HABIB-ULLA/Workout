@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 import useClasses from "../../Hooks/useClasses";
 
 const FeaturedClasses = () => {
@@ -25,10 +25,10 @@ const FeaturedClasses = () => {
           <div
             key={classItem._id}
             to={""}
-            className="bg-opacity-80 backdrop-blur-md duration-500 text-white flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100"
+            className="bg-opacity-80 backdrop-blur-md duration-500 text-white flex  items-center bg-white border border-gray-200 rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100"
           >
             <img
-              className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+              className="object-cover  rounded-t-lg h-72  w-48 md:rounded-none md:rounded-s-lg"
               src={classItem.image}
               alt=""
             />
@@ -52,24 +52,32 @@ const FeaturedClasses = () => {
               </p>
               <div className="flex gap-2">
                 {classItem.trainers.length > 5 ? (
-                  classItem.trainers
-                    .slice(0, 5)
-                    .map((trainer) => (
+                  classItem.trainers.slice(0, 5).map((trainer) => (
+                    <Link
+                      className="cursor-pointer"
+                      to={`/trainers/${trainer._id}`}
+                      key={trainer.image}
+                    >
                       <img
-                        key={trainer.image}
                         src={trainer.image}
                         alt={trainer.name}
                         className="h-10 w-10 rounded-full border-2 "
                       />
-                    ))
+                    </Link>
+                  ))
                 ) : classItem.trainers.length > 0 ? (
                   classItem.trainers.map((trainer) => (
-                    <img
+                    <Link
+                      className="cursor-pointer"
+                      to={`/trainers/${trainer._id}`}
                       key={trainer.image}
-                      src={trainer.image}
-                      alt={trainer.name}
-                      className="h-10 w-10 rounded-full border-2 ring-2 "
-                    />
+                    >
+                      <img
+                        src={trainer.image}
+                        alt={trainer.name}
+                        className="h-10 w-10 rounded-full border-2 "
+                      />
+                    </Link>
                   ))
                 ) : (
                   <p className="text-black">No trainers available</p>

@@ -2,7 +2,6 @@ import {
   FaArrowAltCircleRight,
   FaFacebook,
   FaInstagram,
-  FaTwitch,
   FaTwitter,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -74,9 +73,7 @@ const Trainer = () => {
                     </a>
                   </div>
                   <div>
-                    <button className=" flex items-center gap-2 px-4 p-2 mt-5 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
-                      View details <FaArrowAltCircleRight />
-                    </button>
+                    
                   </div>
                 </div>
               </div>

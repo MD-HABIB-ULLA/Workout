@@ -8,7 +8,7 @@ import Featured from "../../Components/Featured/Featured";
 import FeaturedClasses from "../../Components/FeaturedClasses/FeaturedClasses";
 
 const Home = () => {
-  // window.scrollTo(0, 0);
+  window.scrollTo(0, 0);
   return (
     <div>
       <Helmet>

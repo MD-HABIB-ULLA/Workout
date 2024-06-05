@@ -1,70 +1,149 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import useAxiosPablic from "../../Hooks/useAxiosPpablic";
+import { useQuery } from "@tanstack/react-query";
+import ReactLoading from "react-loading";
 
 const TrainerDetailsPage = () => {
+  window.scrollTo(0, 0);
+
+  const id = useParams().id;
+
   const navigate = useNavigate();
-  const trainer = {
-    name: "John Doe",
-    photo:
-      "https://powerlift.qodeinteractive.com/elementor/wp-content/uploads/2019/06/h1-team-img-1.jpg",
-    details:
-      "John has over 10 years of experience in personal training and fitness coaching. He specializes in weight loss, muscle gain, and cardiovascular fitness.",
-    expertise: ["Weight Loss", "Muscle Gain", "Cardiovascular Fitness"],
-  };
 
-  const availableSlots = [
-    "10:00 AM - 11:00 AM",
-    "11:00 AM - 12:00 PM",
-    "02:00 PM - 03:00 PM",
-  ];
+  const axiosPublic = useAxiosPablic();
+  const { data: trainer = [], isLoading } = useQuery({
+    queryKey: ["trainerForDetails", id],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/trainers/${id}`);
+      return res.data;
+    },
+  });
 
-  const handleSlotClick = (slot) => {
-    // Redirect to the booking page with the selected slot
-    history.push(`/booking?slot=${slot}`);
-  };
-
+  console.log(trainer);
   const handleBecomeTrainerClick = () => {
     // Redirect to the "Become a Trainer" page
     navigate("/become-a-trainer");
   };
 
   return (
-    <div className="trainer-details-page max-w-4xl mx-auto p-6">
-      <div className="trainer-info-section mb-10 text-center">
-        <h2 className="text-3xl font-bold mb-4">{trainer.name}</h2>
-        <img
-          src={trainer.photo}
-          alt={trainer.name}
-          className="w-48 h-48 rounded-full mx-auto mb-4"
-        />
-        <p className="mb-4">{trainer.details}</p>
-        <h3 className="text-xl font-semibold mt-4">Expertise:</h3>
-        <ul className="list-disc list-inside text-left mx-auto max-w-sm">
-          {trainer.expertise.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
+    <div className="min-h-screen  bg-[#141414]">
+      <div className="">
+        <div className="relative pt-28 pb-10 w-full space-y-4">
+          <h1 className="lg:text-6xl md:text-5xl text-2xl text-center text-white uppercase">
+            trainer
+            <span className="text-[#007BFF]"> details</span>
+          </h1>
+        </div>
+        {isLoading ? (
+          <div className="min-h-screen w-full flex items-center justify-center">
+            <ReactLoading
+              type={"spin"}
+              color={"#007BFF"}
+              height={50}
+              width={50}
+            />
+          </div>
+        ) : (
+          <div className="md:p-0 p-10">
+            <section className=" text-white bg-[#11101054] rounded-lg  container m-auto ">
+              <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+                <div className="mr-auto place-self-center lg:col-span-7 ">
+                  <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">
+                    {trainer.name}
+                  </h1>
+                  <h1 className="max-w-2xl mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-6xl">
+                    {trainer.experienceYears}+ Year Experience
+                  </h1>
+                  <div className="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg   lg:text-xl">
+                    {trainer.quote}
+                  </div>
+                  <div>
+                    <span className="font-bold lg:mb-8 md:text-lg   lg:text-xl">
+                      Specialties:
+                    </span>
+                    <ul className="list-disc list-inside ml-3">
+                      {trainer.specialties.map((specialty, index) => (
+                        <li key={index} className="ml-2">
+                          {specialty}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className=" lg:mt-0 lg:col-span-5 lg:flex mt-4 md:mt-0">
+                  <img
+                    src={trainer.images}
+                    alt="mockup"
+                    className="rounded-lg"
+                  />
+                </div>
+              </div>
+            </section>
+            <section className="bg-transparent text-white container m-auto">
+              <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+                <div className=" hidden lg:mt-0 lg:col-span-5 lg:flex mt-4 md:mt-0">
+                  <img
+                    src="https://www.graduateprogram.org/wp-content/uploads/2023/01/Jan-17-How-Schools-are-Revamping-Gym-Classes_web-1024x683.jpg"
+                    alt="mockup"
+                    className=" object-contain"
+                  />
+                </div>
+                <div className="mr-auto place-self-center lg:col-span-7 md:pl-10 pl-0 ">
+                  <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">
+                    Class Schedule :
+                  </h1>
+                  <div className="">
+                    <h1 className="max-w-2xl mb-2 text-2xl font-extrabold tracking-tight leading-none md:text-3xl xl:text-6xl">
+                      Available days :
+                    </h1>
+                    <ul className=" flex text-xl font-bold mb-4 ">
+                      {trainer.availableDays.map((availableDay, index) => (
+                        <li key={index} className="ml-2">
+                          {availableDay}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-      <div className="available-slots-section mb-10 text-center">
-        <h2 className="text-2xl font-bold mb-4">Available Slots</h2>
-        {availableSlots.map((slot, index) => (
-          <button
-            key={index}
-            className="block bg-blue-500 text-white py-2 px-4 rounded mb-2 mx-auto"
-            onClick={() => handleSlotClick(slot)}
-          >
-            {slot}
-          </button>
-        ))}
-      </div>
-
-      <div className="become-trainer-section text-center mt-10">
-        <button
-          className="bg-green-500 text-white py-3 px-6 rounded text-xl"
-          onClick={handleBecomeTrainerClick}
-        >
-          Become a Trainer
-        </button>
+                  <div className="">
+                    <span className="font-bold lg:mb-8 md:text-lg   lg:text-xl">
+                      Specialties:
+                    </span>
+                    <table className="table-auto w-full rounded-lg shadow-md overflow-hidden ">
+                      <thead>
+                        <tr className="bg-[#ffffffaf] text-left text-xs font-medium uppercase text-black">
+                          <th className="px-4 py-2">Slot Name</th>
+                          <th className="px-4 py-2">Time</th>
+                          <th className="px-4 py-2">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {trainer.slots.map((slot) => (
+                          <tr
+                            key={slot.name}
+                            className="border-b hover:bg-[#ffffff15]"
+                          >
+                            <td className="px-4 py-4">{slot.name}</td>
+                            <td className="px-4 py-4">{slot.time}</td>
+                            <td className="px-4 py-4">
+                              <Link
+                                to={`/trainerbooking?id=${trainer._id}&slot=${slot.name}`}
+                              >
+                                <button className="inline-flex items-center px-3 py-2 text-base font-medium text-center text-white rounded-lg bg-blue-500 hover:bg-blue-700 border-none">
+                                  Book Now
+                                </button>
+                              </Link>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        )}
       </div>
     </div>
   );
