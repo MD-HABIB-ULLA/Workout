@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import ReactLoading from "react-loading";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const TrainerBookPage = () => {
   const [selectedCard, setSelectedCard] = useState(null);
@@ -89,6 +90,9 @@ const TrainerBookPage = () => {
 
   return (
     <div className="min-h-screen  bg-[#141414] pb-10">
+          <Helmet>
+        <title>Workout - Book A Trainer</title>
+      </Helmet>
       {" "}
       <div className="relative pt-28 pb-10 w-full space-y-4">
         <h1 className="lg:text-6xl md:text-5xl text-2xl text-center text-white uppercase">
