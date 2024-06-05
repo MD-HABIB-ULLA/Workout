@@ -37,7 +37,7 @@ const Classes = () => {
   return (
     <div className="min-h-screen  bg-[#141414]">
       <Helmet>
-        <title>Workout - Home</title>
+        <title>Workout - Classes</title>
       </Helmet>
       <div className="relative pt-28 pb-10 w-full space-y-4">
         <h1 className="lg:text-6xl md:text-5xl text-2xl text-center text-white uppercase">

@@ -4,6 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckOutForm from "./CheckOutForm";
 import usePayment from "../../Hooks/usePayment";
+import { Helmet } from "react-helmet";
 const stripePromise = loadStripe(
   "pk_test_51PLSF52NHkygt9EvW5PNK63NKBr6kkBTgkG4tl7TmdFHGow5zH3sSxzCDExJEkTgkxbDwxbPJcB8CZ2HQR8UE5C9005BIaeGcY"
 );
@@ -12,6 +13,9 @@ const PaymentPage = () => {
 
   return (
     <div className="bg-[#141414] pb-10">
+          <Helmet>
+        <title>Workout - Payment</title>
+      </Helmet>
       <div>
         {/* title ----------------------------- */}
 
