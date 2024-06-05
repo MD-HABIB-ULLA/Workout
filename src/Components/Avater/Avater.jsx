@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { CiLogin } from "react-icons/ci";
 const Avater = () => {
@@ -9,6 +9,13 @@ const Avater = () => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+  const [photo, setPhoto] = useState("");
+
+  useEffect(() => {
+    if (!loading && user) {
+      setPhoto(user.photoURL);
+    }
+  }, [user, loading]);
 
   // logout logic
   const handleLogoutBtn = () => {
@@ -20,7 +27,7 @@ const Avater = () => {
       {!loading ? (
         <img
           className="w-10 h-10 p-[1px]  rounded-full  ring-2 ring-[#007BFF] "
-          src={user.photoURL}
+          src={photo}
           alt="Bordered avatar"
           onClick={toggleDropdown}
         />
@@ -40,7 +47,7 @@ const Avater = () => {
             <li className="">
               <img
                 className="w-14 h-14  rounded-full  m-auto ring-2 ring-[#007BFF] "
-                src={user.photoURL}
+                src={photo}
                 alt="Bordered avatar"
               />
             </li>

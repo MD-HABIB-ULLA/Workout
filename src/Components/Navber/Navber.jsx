@@ -7,8 +7,10 @@ import Avater from "../Avater/Avater";
 
 const Navber = () => {
   const [openNav, setOpenNav] = useState(false);
+
   const { user, loading } = useAuth();
-  
+console.log(user)
+ 
 
   const toggleDropdown = () => {
     setOpenNav(!openNav);

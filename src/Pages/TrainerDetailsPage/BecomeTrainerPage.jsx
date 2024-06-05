@@ -1,100 +1,189 @@
-import  { useState } from 'react';
-import Select from 'react-select';
-import useAuth from '../../Hooks/useAuth';
+import { useEffect, useState } from "react";
+import Select from "react-select";
+import useAuth from "../../Hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const BeTrainerForm = () => {
-    const {user} = useAuth()
-    const [fullName, setFullName] = useState('');
-    const [email, setEmail] = useState(''); // Assume email is retrieved from authentication
-    const [age, setAge] = useState('');
-    const [profileImage, setProfileImage] = useState('');
-    const [skills, setSkills] = useState([]);
-    const [availableDays, setAvailableDays] = useState([]);
-    const [availableTime, setAvailableTime] = useState('');
-    const [otherInfo, setOtherInfo] = useState('');
-    const [status, setStatus] = useState('pending');
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [age, setAge] = useState("");
+  const [profileImage, setProfileImage] = useState("");
+  const [skills, setSkills] = useState([]);
+  const [availableDays, setAvailableDays] = useState([]);
+  const [availableTime, setAvailableTime] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Code to submit form data to the database
-        console.log({
-            fullName,
-            email,
-            age,
-            profileImage,
-            skills,
-            availableDays,
-            availableTime,
-            otherInfo,
-            status
-        });
-    };
+  const [status, setStatus] = useState("pending");
 
-    // Options for available days
-    const options = [
-        { value: 'Sun', label: 'Sunday' },
-        { value: 'Mon', label: 'Monday' },
-        { value: 'Tue', label: 'Tuesday' },
-        { value: 'Wed', label: 'Wednesday' },
-        { value: 'Thu', label: 'Thursday' },
-        { value: 'Fri', label: 'Friday' },
-        { value: 'Sat', label: 'Saturday' }
-    ];
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Code to submit form data to the database
+    console.log({
+      fullName,
+      email,
+      age,
+      profileImage,
+      skills,
+      availableDays,
+      availableTime,
+      otherInfo,
+      status,
+    });
+  };
+  const { user, loading } = useAuth();
 
-    return (
-        <div className="max-w-lg mx-auto bg-white p-8 rounded-md shadow-md">
-            <h2 className="text-2xl font-bold mb-4">Be a Trainer</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                    <label className="block mb-1">Full Name</label>
-                    <input type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} className="w-full border-gray-300 rounded-md px-4 py-2" />
-                </div>
-                <div>
-                    <label className="block mb-1">Email</label>
-                    <input type="email" value={email} readOnly className="w-full border-gray-300 rounded-md px-4 py-2 bg-gray-100 cursor-not-allowed" />
-                </div>
-                <div>
-                    <label className="block mb-1">Age</label>
-                    <input type="text" value={age} onChange={(e) => setAge(e.target.value)} className="w-full border-gray-300 rounded-md px-4 py-2" />
-                </div>
-                <div>
-                    <label className="block mb-1">Profile Image</label>
-                    <input type="file" onChange={(e) => setProfileImage(e.target.files[0])} className="w-full border-gray-300 rounded-md px-4 py-2" />
-                </div>
-                <div>
-                    <label className="block mb-1">Skills</label>
-                    <Select
-                        options={[
-                            { value: 'JavaScript', label: 'JavaScript' },
-                            { value: 'React', label: 'React' },
-                            { value: 'Node.js', label: 'Node.js' },
-                            { value: 'HTML', label: 'HTML' },
-                            { value: 'CSS', label: 'CSS' }
-                        ]}
-                        isMulti
-                        onChange={setSkills}
-                    />
-                </div>
-                <div>
-                    <label className="block mb-1">Available Days a Week</label>
-                    <Select
-                        options={options}
-                        isMulti
-                        onChange={setAvailableDays}
-                    />
-                </div>
-                <div>
-                    <label className="block mb-1">Available Time in a Day</label>
-                    <input type="text" value={availableTime} onChange={(e) => setAvailableTime(e.target.value)} className="w-full border-gray-300 rounded-md px-4 py-2" />
-                </div>
-                <div>
-                    <label className="block mb-1">Other Info</label>
-                    <textarea value={otherInfo} onChange={(e) => setOtherInfo(e.target.value)} className="w-full border-gray-300 rounded-md px-4 py-2"></textarea>
-                </div>
-                <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Apply</button>
-            </form>
+  useEffect(() => {
+    if (!loading && user) {
+      setEmail(user.email);
+      setFullName(user.displayName);
+      setProfileImage(user.photoURL);
+    }
+  }, [user, loading]);
+  // Options for available days
+  const options = [
+    { value: "Sun", label: "Sunday" },
+    { value: "Mon", label: "Monday" },
+    { value: "Tue", label: "Tuesday" },
+    { value: "Wed", label: "Wednesday" },
+    { value: "Thu", label: "Thursday" },
+    { value: "Fri", label: "Friday" },
+    { value: "Sat", label: "Saturday" },
+  ];
+
+  return (
+    <div className=" bg-[#141414]">
+      <div className="max-w-3xl mx-auto  p-8 rounded-md  ">
+        <Helmet>
+          <title>Workout - Book A Trainer</title>
+        </Helmet>{" "}
+        <div className="relative md:pt-28 pt-10 pb-10 w-full space-y-4">
+          <h1 className="lg:text-6xl md:text-5xl text-2xl text-center text-white uppercase">
+            trainer
+            <span className="text-[#007BFF]"> Booking</span>
+          </h1>
         </div>
-    );
+        {loading ? (
+          ""
+        ) : (
+          <div className="w-full flex justify-between text-white">
+            <div>
+              <h1 className="uppercase text-3xl font-bold ">{fullName}</h1>
+              <p className=" text-xl font-bold ">{email}</p>
+            </div>
+            <div className="rounded-full  p-1">
+              <img
+                src={profileImage}
+                className=" w-full h-full rounded-full"
+                alt=""
+              />
+            </div>
+          </div>
+        )}
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-4 rounded-lg border-blue-600 border-2 p-10 mt-4"
+        >
+          <div className="flex flex-col md:flex-row md:space-x-4 gap-2">
+            <div className=" md:w-1/2">
+              <label className="block mb-1 text-xl font-bold text-white">
+              Experience Years
+              </label>
+              <input
+                type="text"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                className="w-full border-gray-300 rounded-md px-4 py-2"
+              />
+            </div>
+
+            <div className="md:w-[50%] w-full">
+              <label className="block mb-1 text-xl font-bold text-white">
+                Skills
+              </label>
+              <Select
+                options={[
+                  { value: "Athletic Training", label: "Athletic Training" },
+                  {
+                    value: "Balance & Stability Training",
+                    label: "Balance & Stability Training",
+                  },
+                  { value: "Barre", label: "Barre" },
+                  { value: "Calisthenics", label: "Calisthenics" },
+                  { value: "Cardio", label: "Cardio" },
+                  { value: "CrossFit", label: "CrossFit" },
+                  { value: "For Pregnant", label: "For Pregnant" },
+                  { value: "Functional", label: "Functional" },
+                  { value: "HIIT", label: "HIIT" },
+                  {
+                    value: "Meditation / Breathing",
+                    label: "Meditation / Breathing",
+                  },
+                  { value: "Mobility Training", label: "Mobility Training" },
+                  { value: "Myofascial Release", label: "Myofascial Release" },
+                  { value: "Nutrition", label: "Nutrition" },
+                  { value: "Pilates", label: "Pilates" },
+                  { value: "Plyometrics", label: "Plyometrics" },
+                  {
+                    value: "Post Injury/Surgery Recovery",
+                    label: "Post Injury/Surgery Recovery",
+                  },
+                  {
+                    value: "Postural Correction",
+                    label: "Postural Correction",
+                  },
+                  { value: "Rehabilitation", label: "Rehabilitation" },
+                  {
+                    value: "Speed, Agility & Coordination",
+                    label: "Speed, Agility & Coordination",
+                  },
+                  {
+                    value: "Sports Specific Training",
+                    label: "Sports Specific Training",
+                  },
+                  { value: "Strength", label: "Strength" },
+                  { value: "Stretching", label: "Stretching" },
+                  { value: "Toning", label: "Toning" },
+                  { value: "TRX", label: "TRX" },
+                  { value: "Weight loss", label: "Weight loss" },
+                  { value: "Yoga", label: "Yoga" },
+                ]}
+                isMulti
+                onChange={setSkills}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row md:space-x-4 gap-2 ">
+            <div className=" md:w-1/2">
+              <label className="block mb-1 text-xl font-bold text-white">
+                Available Time in a Day
+              </label>
+              <input
+                type="text"
+                value={availableDays}
+                onChange={(e) => setAvailableDays(e.target.value)}
+                className="w-full border-gray-300 rounded-md px-4 py-2"
+              />
+            </div>
+
+            <div className="md:w-[50%] w-full">
+              <label className="block mb-1 text-xl font-bold text-white">
+                Available Days a Week
+              </label>
+              <Select options={options} onChange={setSkills} />
+            </div>
+          </div>
+
+       
+
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+          >
+            Apply
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default BeTrainerForm;
