@@ -9,7 +9,7 @@ const Navber = () => {
   const [openNav, setOpenNav] = useState(false);
 
   const { user, loading } = useAuth();
-console.log(user)
+
  
 
   const toggleDropdown = () => {

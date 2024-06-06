@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Select from "react-select";
 import useAuth from "../../Hooks/useAuth";
 import { Helmet } from "react-helmet";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPablic from "../../Hooks/useAxiosPpablic";
 
 const BeTrainerForm = () => {
   const [fullName, setFullName] = useState("");
@@ -14,6 +16,16 @@ const BeTrainerForm = () => {
 
   const [status, setStatus] = useState("pending");
 
+  const axiosPublic = useAxiosPablic();
+  const { data: classesName = [], isLoading } = useQuery({
+    queryKey: ["classesName"],
+    queryFn: async () => {
+      const res = await axiosPublic.get("/classes/name");
+      return res.data;
+    },
+  });
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Code to submit form data to the database
@@ -25,7 +37,6 @@ const BeTrainerForm = () => {
       skills,
       availableDays,
       availableTime,
-      otherInfo,
       status,
     });
   };
@@ -72,7 +83,7 @@ const BeTrainerForm = () => {
             <div className="rounded-full  p-1">
               <img
                 src={profileImage}
-                className=" w-full h-full rounded-full"
+                className=" h-16 w-16 ring-2 rounded-full"
                 alt=""
               />
             </div>
@@ -85,7 +96,7 @@ const BeTrainerForm = () => {
           <div className="flex flex-col md:flex-row md:space-x-4 gap-2">
             <div className=" md:w-1/2">
               <label className="block mb-1 text-xl font-bold text-white">
-              Experience Years
+                Experience Years
               </label>
               <input
                 type="text"
@@ -100,52 +111,7 @@ const BeTrainerForm = () => {
                 Skills
               </label>
               <Select
-                options={[
-                  { value: "Athletic Training", label: "Athletic Training" },
-                  {
-                    value: "Balance & Stability Training",
-                    label: "Balance & Stability Training",
-                  },
-                  { value: "Barre", label: "Barre" },
-                  { value: "Calisthenics", label: "Calisthenics" },
-                  { value: "Cardio", label: "Cardio" },
-                  { value: "CrossFit", label: "CrossFit" },
-                  { value: "For Pregnant", label: "For Pregnant" },
-                  { value: "Functional", label: "Functional" },
-                  { value: "HIIT", label: "HIIT" },
-                  {
-                    value: "Meditation / Breathing",
-                    label: "Meditation / Breathing",
-                  },
-                  { value: "Mobility Training", label: "Mobility Training" },
-                  { value: "Myofascial Release", label: "Myofascial Release" },
-                  { value: "Nutrition", label: "Nutrition" },
-                  { value: "Pilates", label: "Pilates" },
-                  { value: "Plyometrics", label: "Plyometrics" },
-                  {
-                    value: "Post Injury/Surgery Recovery",
-                    label: "Post Injury/Surgery Recovery",
-                  },
-                  {
-                    value: "Postural Correction",
-                    label: "Postural Correction",
-                  },
-                  { value: "Rehabilitation", label: "Rehabilitation" },
-                  {
-                    value: "Speed, Agility & Coordination",
-                    label: "Speed, Agility & Coordination",
-                  },
-                  {
-                    value: "Sports Specific Training",
-                    label: "Sports Specific Training",
-                  },
-                  { value: "Strength", label: "Strength" },
-                  { value: "Stretching", label: "Stretching" },
-                  { value: "Toning", label: "Toning" },
-                  { value: "TRX", label: "TRX" },
-                  { value: "Weight loss", label: "Weight loss" },
-                  { value: "Yoga", label: "Yoga" },
-                ]}
+                options={classesName}
                 isMulti
                 onChange={setSkills}
               />
@@ -171,8 +137,6 @@ const BeTrainerForm = () => {
               <Select options={options} onChange={setSkills} />
             </div>
           </div>
-
-       
 
           <button
             type="submit"

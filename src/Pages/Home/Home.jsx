@@ -6,6 +6,7 @@ import Title from "../../Components/Title/Title";
 import Trainer from "../../Components/Trainer/Trainer";
 import Featured from "../../Components/Featured/Featured";
 import FeaturedClasses from "../../Components/FeaturedClasses/FeaturedClasses";
+import NewsletterForm from "../../Components/NewsletterForm/NewsletterForm";
 
 const Home = () => {
   window.scrollTo(0, 0);
@@ -21,6 +22,7 @@ const Home = () => {
       <Trainer />
       <FeaturedClasses/>
       <Review />
+      <NewsletterForm/>
     </div>
   );
 };

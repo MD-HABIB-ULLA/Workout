@@ -13,7 +13,7 @@ const Trainers = () => {
       return res.data;
     },
   });
-  console.log(trainers);
+
   return (
     <div className=" pt-10 md:pt-0 bg-[#141414] min-h-screen pb-10 ">
       <div className="container m-auto">
@@ -92,8 +92,10 @@ const Trainers = () => {
               </div>
             ))}
           </div>
+          
         )}
       </div>
+      
     </div>
   );
 };

@@ -14,13 +14,13 @@ const CheckOutForm = () => {
   const axiosPublic = useAxiosPablic();
   const stripe = useStripe();
   const navigate = useNavigate()
-  console.log(paymentData)
+
   useEffect(() => {
     if (paymentData.price > 0) {
       axiosPublic
         .post("/create-payment-intent", { price: paymentData.price })
         .then((res) => {
-          console.log(res.data.clientSecret);
+
           setClientSecret(res.data.clientSecret);
         });
     }
@@ -46,7 +46,7 @@ const CheckOutForm = () => {
       console.log("[error]", error);
       setError(error.message);
     } else {
-      console.log("[PaymentMethod]", paymentMethod);
+
       setError("");
     }
 
@@ -66,7 +66,7 @@ const CheckOutForm = () => {
     } else {
       console.log("payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded") {
-        console.log(paymentIntent.id);
+
         setPaymentId(paymentIntent.id);
 
         const payment = {
@@ -81,7 +81,7 @@ const CheckOutForm = () => {
         };
 
         const res = await axiosPublic.post("/payments", payment);
-        console.log("payment saved", res.data);
+
         refetch();
         // console.log(res.data)
         if (res.data?.paymentResult.insertedId) {

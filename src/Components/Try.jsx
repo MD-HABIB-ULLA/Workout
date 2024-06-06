@@ -19,7 +19,7 @@ export default function BasicPagination() {
 
   const handlePageChange = (event, value) => {
     setPage(value);
-    console.log(value);
+
   };
 
   return (

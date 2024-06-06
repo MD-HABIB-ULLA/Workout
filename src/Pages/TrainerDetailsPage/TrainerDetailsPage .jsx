@@ -20,7 +20,7 @@ const TrainerDetailsPage = () => {
     },
   });
 
-  console.log(trainer);
+
   const handleBecomeTrainerClick = () => {
     // Redirect to the "Become a Trainer" page
     navigate("/become-a-trainer");
@@ -108,7 +108,7 @@ const TrainerDetailsPage = () => {
                     Class Schedule :
                   </h1>
                   <div className="">
-                    <h1 className="max-w-2xl mb-2 text-2xl font-extrabold tracking-tight leading-none md:text-3xl xl:text-6xl">
+                    <h1 className="max-w-2xl mb-2 text-2xl font-extrabold tracking-tight leading-none md:text-3xl xl:text-4xl">
                       Available days :
                     </h1>
                     <ul className=" flex text-xl font-bold mb-4 ">

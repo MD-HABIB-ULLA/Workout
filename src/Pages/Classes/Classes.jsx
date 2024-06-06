@@ -30,9 +30,7 @@ const Classes = () => {
   });
   const handlePageChange = (event, value) => {
     setPage(value);
-    console.log(value);
   };
-  console.log(isLoading);
   window.scrollTo(0, 0);
   return (
     <div className="min-h-screen  bg-[#141414]">

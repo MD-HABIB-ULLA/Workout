@@ -4,7 +4,7 @@ import useClasses from "../../Hooks/useClasses";
 const FeaturedClasses = () => {
   const [classes] = useClasses();
   const classesData = classes.slice(0, 6);
-  console.log(classesData);
+
 
   return (
     <div className="container m-auto lg:pt-20">

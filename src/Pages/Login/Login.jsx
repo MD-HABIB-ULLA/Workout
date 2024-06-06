@@ -26,11 +26,11 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data, e) => {
-    console.log(data);
+
     signOutUser();
     signInUser(data.email, data.password)
       .then((result) => {
-        console.log(result);
+
         toast.success("Login sucsessful");
         e.target.reset();
         navigate(location?.state ? location.state : "/");
@@ -41,7 +41,7 @@ const Login = () => {
           setLoading(false);
         }
       });
-    console.log(data);
+
   };
 
   return (
