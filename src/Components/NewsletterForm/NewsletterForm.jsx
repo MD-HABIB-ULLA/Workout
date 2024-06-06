@@ -1,13 +1,25 @@
-
 import { useState } from "react";
+import useAxiosPablic from "../../Hooks/useAxiosPpablic";
+import toast from "react-hot-toast";
 
 const NewsletterForm = () => {
+  const axiosPublic = useAxiosPablic();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email)
+    const data = { name, email };
+    axiosPublic
+      .post("/newsletter", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          toast.success("Successfully added your email");
+        }
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message);
+      });
   };
 
   return (
