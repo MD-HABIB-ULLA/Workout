@@ -45,7 +45,7 @@ const Trainers = () => {
                   <img
                     src={trainer.images}
                     alt={trainer.name}
-                    className="h-full w-full object-cover rounded-lg"
+                    className="h-full w-full object-cover object-top rounded-lg"
                   />
                 </div>
                 <div className="p-4 flex-1">

@@ -48,7 +48,7 @@ const Login = () => {
     <div
       style={{
         backgroundImage:
-          "Url(https://fitflex.axiomthemes.com/wp-content/uploads/2023/11/185_2-2-copyright.jpg)",
+          "Url(https://themewagon.github.io/gymlife/img/gallery/gallery-6.jpg)",
       }}
       className="bg-cover bg-center min-h-screen p-10"
     >

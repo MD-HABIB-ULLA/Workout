@@ -17,7 +17,7 @@ const BeTrainerForm = () => {
   const [status, setStatus] = useState("pending");
 
   const axiosPublic = useAxiosPablic();
-  const { data: classesName = [], isLoading } = useQuery({
+  const { data: classesName = [], } = useQuery({
     queryKey: ["classesName"],
     queryFn: async () => {
       const res = await axiosPublic.get("/classes/name");

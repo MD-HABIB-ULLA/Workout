@@ -1,10 +1,11 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosPablic from "../../Hooks/useAxiosPpablic";
 import { useQuery } from "@tanstack/react-query";
-import ReactLoading from "react-loading";
+
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { Helmet } from "react-helmet";
+import Loading from "../../Components/Loading/Loading";
 
 const TrainerBookPage = () => {
   const [selectedCard, setSelectedCard] = useState(null);
@@ -103,14 +104,7 @@ const TrainerBookPage = () => {
       </div>
       <div className=" bg-[#29272738] container m-auto p-5 rounded-lg">
         {isLoading ? (
-          <div className="min-h-screen w-full flex items-center justify-center">
-            <ReactLoading
-              type={"spin"}
-              color={"#007BFF"}
-              height={50}
-              width={50}
-            />
-          </div>
+          <Loading/>
         ) : (
           <div className="container mx-auto px-4 py-8 text-white">
             <h1 className="text-3xl font-bold mb-4">Trainer Info</h1>

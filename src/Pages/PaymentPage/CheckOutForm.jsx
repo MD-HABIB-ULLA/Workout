@@ -63,6 +63,7 @@ const CheckOutForm = () => {
 
     if (confirmError) {
       console.log(confirmError);
+      console.log(paymentMethod)
     } else {
       console.log("payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded") {

@@ -10,8 +10,6 @@ const Navber = () => {
 
   const { user, loading } = useAuth();
 
- 
-
   const toggleDropdown = () => {
     setOpenNav(!openNav);
   };
@@ -73,20 +71,24 @@ const Navber = () => {
           Classes
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/dashboard"
-          className={({ isActive }) =>
-            `text-base font-bold text-white   uppercase ${
-              isActive
-                ? "   inter border-2 border-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
-                : "md:text-white"
-            } `
-          }
-        >
-          Dashboard
-        </NavLink>
-      </li>
+      {user ? (
+        <li>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              `text-base font-bold text-white   uppercase ${
+                isActive
+                  ? "   inter border-2 border-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
+                  : "md:text-white"
+              } `
+            }
+          >
+            Dashboard
+          </NavLink>
+        </li>
+      ) : (
+        ""
+      )}
       <li>
         <NavLink
           to="/community"
@@ -115,11 +117,14 @@ const Navber = () => {
       >
         <nav className="">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-            <img
-              src="https://i.ibb.co/8bY004Y/2024-05-26-00-05-25-Window-removebg-preview.png"
-              className="h-12"
-              alt=""
-            />
+            <Link to='/'>
+              {" "}
+              <img
+                src="https://i.ibb.co/8bY004Y/2024-05-26-00-05-25-Window-removebg-preview.png"
+                className="h-12"
+                alt=""
+              />
+            </Link>
 
             <div className="flex items-center">
               <div className="md:hidden block">

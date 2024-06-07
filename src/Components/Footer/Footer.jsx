@@ -6,7 +6,7 @@ const Footer = () => {
           backgroundImage:
             "url(https://trackstore.qodeinteractive.com/wp-content/uploads/2017/10/shop-simple-slider-2.jpg)",
         }}
-        className="relative bg-blueGray-200 bg-cover bg-center "
+        className="relative bg-blueGray-200 bg-cover bg-center  z-40"
       >
         <div className="h-full w-full bg-black bg-opacity-60  pt-8 pb-6">
           <div className="container mx-auto px-4">
