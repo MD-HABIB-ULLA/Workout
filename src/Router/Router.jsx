@@ -12,6 +12,7 @@ import BeTrainerForm from "../Pages/TrainerDetailsPage/BecomeTrainerPage";
 import DHome from "../Pages/Dashboard/D-Home/DHome";
 import Profile from "../Pages/Dashboard/DProfile/Profile";
 import PrivateRoute from "./PrivateRoute";
+import Newsletter from "../Pages/Newsletter/Newsletter";
 
 const Router = createBrowserRouter([
   {
@@ -36,7 +37,11 @@ const Router = createBrowserRouter([
       },
       {
         path: "/become-a-trainer",
-        element: <PrivateRoute><BeTrainerForm /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <BeTrainerForm />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/trainers",
@@ -68,13 +73,25 @@ const Router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <DHome />,
+        element: (
+          <PrivateRoute>
+            <DHome />
+          </PrivateRoute>
+        ),
         children: [
           {
             path: "/dashboard",
             element: (
               <PrivateRoute>
                 <Profile />
+              </PrivateRoute>
+            ),
+          },
+          {
+            path: "/dashboard/subscriber",
+            element: (
+              <PrivateRoute>
+                <Newsletter />
               </PrivateRoute>
             ),
           },
