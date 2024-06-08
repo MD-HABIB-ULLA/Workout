@@ -117,7 +117,7 @@ const Navber = () => {
       >
         <nav className="">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-            <Link to='/'>
+            <Link to="/">
               {" "}
               <img
                 src="https://i.ibb.co/8bY004Y/2024-05-26-00-05-25-Window-removebg-preview.png"
@@ -171,7 +171,7 @@ const Navber = () => {
                       <div className="w-5 h-5 border-2 border-t-blue-400 animate-spin rounded-full"></div>
                     </div>
                   </button>
-                ) : user ? (
+                ) : user?.photoURL ? (
                   <Avater />
                 ) : (
                   <Link to="/login">

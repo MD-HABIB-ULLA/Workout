@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { CiLogin } from "react-icons/ci";
+import toast from "react-hot-toast";
 const Avater = () => {
   const { user, signOutUser, loading } = useAuth();
 
@@ -20,6 +21,7 @@ const Avater = () => {
   // logout logic
   const handleLogoutBtn = () => {
     signOutUser();
+    toast.success("Log out successful")
   };
 
   return (

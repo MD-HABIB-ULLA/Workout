@@ -13,6 +13,10 @@ import DHome from "../Pages/Dashboard/D-Home/DHome";
 import Profile from "../Pages/Dashboard/DProfile/Profile";
 import PrivateRoute from "./PrivateRoute";
 import Newsletter from "../Pages/Newsletter/Newsletter";
+import DTrainers from "../Pages/Dashboard/DTrainers/DTrainers";
+import DBlance from "../Pages/Dashboard/DBlance/DBlance";
+import DAddClass from "../Pages/Dashboard/DAddClass/DAddClass";
+import AdminRoute from "./AdminRoute";
 
 const Router = createBrowserRouter([
   {
@@ -93,6 +97,30 @@ const Router = createBrowserRouter([
               <PrivateRoute>
                 <Newsletter />
               </PrivateRoute>
+            ),
+          },
+          {
+            path: "/dashboard/allTrainers",
+            element: (
+              <PrivateRoute>
+                <DTrainers />
+              </PrivateRoute>
+            ),
+          },
+          {
+            path: "/dashboard/balance",
+            element: (
+              <PrivateRoute>
+                <DBlance />
+              </PrivateRoute>
+            ),
+          },
+          {
+            path: "/dashboard/addClasses",
+            element: (
+              <AdminRoute>
+                <DAddClass />
+              </AdminRoute>
             ),
           },
         ],

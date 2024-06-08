@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Loading from "../../Components/Loading/Loading";
 
+
 const Newsletter = () => {
   const axiosSecure = useAxiosSecure();
   const { data: newsletters = [], isLoading } = useQuery({
@@ -46,6 +47,7 @@ const Newsletter = () => {
           </tbody>
         </table>
       </div>
+    
     </div>
   );
 };

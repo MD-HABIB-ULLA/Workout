@@ -34,26 +34,26 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
   //   upadata user profile and name
-  const updateUserProfile = (displayName, photoURL) => {
-    const profileData = {};
-    if (displayName) {
-      profileData.displayName = displayName;
+  const updateUserProfile = async (displayName, photoURL) => {
+    try {
+      setLoading(true); 
+      const profileData = {};
+      if (displayName) {
+        profileData.displayName = displayName;
+      }
+      if (photoURL) {
+        profileData.photoURL = photoURL;
+      }
+      await updateProfile(auth.currentUser, profileData);
+      console.log("User profile updated successfully");
+    } catch (error) {
+      console.error("Error updating user profile:", error);
+    } finally {
+      setLoading(false);
     }
-    if (photoURL) {
-      profileData.photoURL = photoURL;
-    }
-    return updateProfile(auth.currentUser, profileData)
-      .then(() => {
-        console.log("User profile updated successfully");
-      })
-      .catch((error) => {
-        console.error("Error updating user profile:", error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
   };
-
+  
+  
   // sign in with google
   const singInUserByGoogle = () => {
     setLoading(true);
@@ -85,7 +85,6 @@ const AuthProvider = ({ children }) => {
         localStorage.removeItem("access-token");
         setLoading(false);
       }
-      
     });
     return () => {
       unsubscribe();

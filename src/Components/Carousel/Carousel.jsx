@@ -1,5 +1,6 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Link } from "react-router-dom";
 
 const CarouselBanner = () => {
   return (
@@ -36,10 +37,12 @@ const CarouselBanner = () => {
                 greatness.{" "}
               </div>
               <div>
-                <button className=" px-4 p-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
-                  {" "}
-                  Join Now
-                </button>
+                <Link to={"/classes"}>
+                  <button className=" px-4 p-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                    {" "}
+                    Join Now
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
