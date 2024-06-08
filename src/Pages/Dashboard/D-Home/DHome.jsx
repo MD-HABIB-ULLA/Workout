@@ -9,9 +9,12 @@ import { FaChalkboardTeacher } from "react-icons/fa";
 import { VscGitStashApply } from "react-icons/vsc";
 import { SiGoogleclassroom } from "react-icons/si";
 import { MdAccountBalanceWallet } from "react-icons/md";
+import { RxActivityLog } from "react-icons/rx";
+import UseAplicationFiner from "../../../Hooks/UseAplicationFiner";
 const DHome = () => {
-  const [isAdmin] = useRole();
-  console.log(isAdmin);
+  const [isAdmin, isTrainer] = useRole();
+  console.log(isAdmin, isTrainer);
+  const [applictionBecameTrainer] = UseAplicationFiner();
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -19,6 +22,7 @@ const DHome = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  console.log(applictionBecameTrainer)
   return (
     <div className=" lg:pt-24 pt-20 bg-[#141414] ">
       {" "}
@@ -53,6 +57,24 @@ const DHome = () => {
             >
               <CgProfile className="mr-2" /> Profile
             </NavLink>
+            {isAdmin === false &&
+            isTrainer === false &&
+            applictionBecameTrainer ? (
+              <NavLink
+                to="/dashboard/activity"
+                className={({ isActive }) =>
+                  `text-base font-bold   px-6 py-2 mt-4 w-full flex items-center   hover:bg-gray-200 dark:hover:bg-gray-700 duration-500 hover:text-gray-700 dark:hover:text-gray-200 uppercase ${
+                    isActive
+                      ? "   inter  text-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
+                      : "md:text-white text-white"
+                  } `
+                }
+              >
+                <RxActivityLog className="mr-2" /> Activity log
+              </NavLink>
+            ) : (
+              ""
+            )}
             {isAdmin ? (
               <>
                 {" "}

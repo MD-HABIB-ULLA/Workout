@@ -17,6 +17,7 @@ import DTrainers from "../Pages/Dashboard/DTrainers/DTrainers";
 import DBlance from "../Pages/Dashboard/DBlance/DBlance";
 import DAddClass from "../Pages/Dashboard/DAddClass/DAddClass";
 import AdminRoute from "./AdminRoute";
+import DAtivity from "../Pages/Dashboard/DAtivity/DAtivity";
 
 const Router = createBrowserRouter([
   {
@@ -92,27 +93,35 @@ const Router = createBrowserRouter([
             ),
           },
           {
-            path: "/dashboard/subscriber",
+            path: "/dashboard/activity",
             element: (
               <PrivateRoute>
-                <Newsletter />
+                <DAtivity />
               </PrivateRoute>
+            ),
+          },
+          {
+            path: "/dashboard/subscriber",
+            element: (
+              <AdminRoute>
+                <Newsletter />
+              </AdminRoute>
             ),
           },
           {
             path: "/dashboard/allTrainers",
             element: (
-              <PrivateRoute>
+              <AdminRoute>
                 <DTrainers />
-              </PrivateRoute>
+              </AdminRoute>
             ),
           },
           {
             path: "/dashboard/balance",
             element: (
-              <PrivateRoute>
+              <AdminRoute>
                 <DBlance />
-              </PrivateRoute>
+              </AdminRoute>
             ),
           },
           {

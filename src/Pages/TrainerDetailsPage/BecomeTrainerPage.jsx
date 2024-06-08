@@ -5,8 +5,16 @@ import { Helmet } from "react-helmet";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPablic from "../../Hooks/useAxiosPpablic";
 import Loading from "../../Components/Loading/Loading";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import UseAplicationFiner from "../../Hooks/UseAplicationFiner";
 
 const BeTrainerForm = () => {
+  const navigate = useNavigate()
+  const [applictionBecameTrainer ] =UseAplicationFiner()
+  if(applictionBecameTrainer){
+    navigate("/")
+  }
   const [skills, setSkills] = useState([]);
   const [Days, setAvailableDays] = useState([]);
 
@@ -45,7 +53,12 @@ const BeTrainerForm = () => {
     };
     axiosPublic
       .post("/applictionBecameTrainer", data)
-      .then((res) => console.log(res.data))
+      .then((res) =>{
+        if(res){
+          navigate("/dashboard/activity")
+          toast.success("Application added")
+        }
+      })
       .catch((err) => console.log(err.data));
   };
   const { user, loading } = useAuth();

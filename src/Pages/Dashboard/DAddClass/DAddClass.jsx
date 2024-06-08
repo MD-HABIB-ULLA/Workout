@@ -1,4 +1,6 @@
+import toast from "react-hot-toast";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 const DAddClass = () => {
   const axiosSecure = useAxiosSecure();
@@ -14,11 +16,19 @@ const DAddClass = () => {
     console.log(data);
     axiosSecure
       .post("/classes", data)
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        if (res) {
+          toast.success("Class added");
+          e.target.reset();
+        }
+      })
       .catch((err) => console.log(err.data));
   };
   return (
     <div>
+      <Helmet>
+        <title>Workout - Add classe</title>
+      </Helmet>
       <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6">
         <h2 className="text-4xl text-center font-semibold mb-4">
           Add New Class
