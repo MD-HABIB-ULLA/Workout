@@ -22,7 +22,7 @@ const DHome = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  console.log(applictionBecameTrainer)
+  console.log(applictionBecameTrainer);
   return (
     <div className=" lg:pt-24 pt-20 bg-[#141414] ">
       {" "}
@@ -137,6 +137,34 @@ const DHome = () => {
                   }
                 >
                   <SiGoogleclassroom className="mr-2" /> Add new Class
+                </NavLink>
+              </>
+            ) : isTrainer ? (
+              <>
+                {" "}
+                <NavLink
+                  to="/dashboard/manageClasses"
+                  className={({ isActive }) =>
+                    `text-base font-bold   px-6 py-2 mt-4 w-full flex items-center   hover:bg-gray-200 dark:hover:bg-gray-700 duration-500 hover:text-gray-700 dark:hover:text-gray-200 uppercase ${
+                      isActive
+                        ? "   inter  text-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
+                        : "md:text-white text-white"
+                    } `
+                  }
+                >
+                  <SiGoogleclassroom className="mr-2" /> manage classes
+                </NavLink>
+                <NavLink
+                  to="/dashboard/addSession"
+                  className={({ isActive }) =>
+                    `text-base font-bold   px-6 py-2 mt-4 w-full flex items-center   hover:bg-gray-200 dark:hover:bg-gray-700 duration-500 hover:text-gray-700 dark:hover:text-gray-200 uppercase ${
+                      isActive
+                        ? "   inter  text-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
+                        : "md:text-white text-white"
+                    } `
+                  }
+                >
+                  <SiGoogleclassroom className="mr-2" /> Add Session
                 </NavLink>
               </>
             ) : (

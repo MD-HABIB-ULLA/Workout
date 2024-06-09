@@ -21,6 +21,9 @@ import DAtivity from "../Pages/Dashboard/DAtivity/DAtivity";
 import DAllApplication from "../Pages/Dashboard/DAllAplictions/DAllApplication";
 import ApplicationDetails from "../Pages/Dashboard/DAllAplictions/ApplicationDetails";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import TrainerRoute from "./TrainerRoute";
+import DManageClasses from "../Pages/Dashboard/DManageClasses/DManageClasses";
+import AddSession from "../Pages/Dashboard/DManageClasses/AddSession";
 
 
 
@@ -152,6 +155,22 @@ const Router = createBrowserRouter([
               <AdminRoute>
                 <ApplicationDetails />
               </AdminRoute>
+            ),
+          },
+          {
+            path: "/dashboard/manageClasses",
+            element: (
+              <TrainerRoute>
+                <DManageClasses />
+              </TrainerRoute>
+            ),
+          },
+          {
+            path: "/dashboard/addSession",
+            element: (
+              <TrainerRoute>
+                <AddSession />
+              </TrainerRoute>
             ),
           },
         ],

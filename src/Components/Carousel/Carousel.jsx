@@ -19,7 +19,7 @@ const CarouselBanner = () => {
           className=" lg:h-screen md:h-[60vh]  h-[40vh] bg-center bg-cover "
           style={{
             backgroundImage:
-              "url(https://hercules.ptonline.work/wp-content/uploads/2017/08/slide-1-1.jpg)",
+              "url(https://i.ibb.co/3c0DS1J/h1-parallax-img.jpg)",
           }}
         >
           <div className="h-full bg-black bg-opacity-50 flex items-start text-center space-y-5 justify-between ">
@@ -51,7 +51,7 @@ const CarouselBanner = () => {
           className=" h-full bg-center bg-cover"
           style={{
             backgroundImage:
-              "url(https://powerlift.qodeinteractive.com/elementor/wp-content/uploads/2019/07/h1-parallax-img.jpg)",
+              "url(https://i.ibb.co/gw55gCX/hero.jpg)",
           }}
         >
           <div className="h-full bg-black bg-opacity-50 flex items-start  text-center">
@@ -81,7 +81,7 @@ const CarouselBanner = () => {
           className=" h-full bg-center bg-cover"
           style={{
             backgroundImage:
-              "url(https://hercules.ptonline.work/wp-content/uploads/2017/08/parallax-5-1.jpg)",
+              "url(https://i.ibb.co/bbHTGYd/footer-bg.jpg)",
           }}
         >
           <div className="h-full bg-black bg-opacity-50 flex items-start  text-center">

@@ -31,10 +31,7 @@ const DAllApplication = () => {
   //     .catch((err) => console.log(err));
   // }, [axiosSecure]);
 
-  const toggleModal1 = (data) => {
-    setModalData(data);
-    setIsOpen(!isOpen);
-  };
+
   const toggleModal = (data) => {
     setModalData(data);
     setSeeDetails(!seeDetails);
@@ -56,18 +53,7 @@ const DAllApplication = () => {
       })
       .catch((err) => console.log(err));
   };
-  const handleApproveBtn = (details) => {
-    const statusdata = "approved";
-    const data = { ...details, statusdata };
-    axiosSecure
-      .post("/applictionBecameTrainerUpdata", data)
-      .then((res) => {
-        if (res.data.result1.insertedId) {
-          refetch();
-        }
-      })
-      .catch((err) => console.log(err));
-  };
+ 
 
   const closeModal = () => {
     setIsOpen(false);
