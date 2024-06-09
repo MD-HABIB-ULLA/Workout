@@ -14,6 +14,7 @@ const CheckOutForm = () => {
   const axiosPublic = useAxiosPablic();
   const stripe = useStripe();
   const navigate = useNavigate()
+  console.log(paymentData)
 
   useEffect(() => {
     if (paymentData.price > 0) {
@@ -25,6 +26,8 @@ const CheckOutForm = () => {
         });
     }
   }, [axiosPublic, paymentData]);
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -74,6 +77,8 @@ const CheckOutForm = () => {
           email: paymentData.user.email,
           price: paymentData.price,
           class : paymentData.class,
+          trainerName : paymentData.trainerName,
+          soltName :paymentData.slotName,
           transactionId: paymentIntent.id,
           date: new Date(), // utc date convert. use moment js to
           bookingId: paymentData._id,

@@ -18,11 +18,17 @@ import DBlance from "../Pages/Dashboard/DBlance/DBlance";
 import DAddClass from "../Pages/Dashboard/DAddClass/DAddClass";
 import AdminRoute from "./AdminRoute";
 import DAtivity from "../Pages/Dashboard/DAtivity/DAtivity";
+import DAllApplication from "../Pages/Dashboard/DAllAplictions/DAllApplication";
+import ApplicationDetails from "../Pages/Dashboard/DAllAplictions/ApplicationDetails";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+
+
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement:<ErrorPage/>,
     children: [
       {
         path: "/",
@@ -129,6 +135,22 @@ const Router = createBrowserRouter([
             element: (
               <AdminRoute>
                 <DAddClass />
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "/dashboard/allAplication",
+            element: (
+              <AdminRoute>
+                <DAllApplication />
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "/dashboard/applicationDetails/:id",
+            element: (
+              <AdminRoute>
+                <ApplicationDetails />
               </AdminRoute>
             ),
           },

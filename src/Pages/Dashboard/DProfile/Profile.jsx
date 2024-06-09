@@ -3,7 +3,8 @@ import useAuth from "../../../Hooks/useAuth";
 import useRole from "../../../Hooks/useRole";
 
 const Profile = () => {
-  const [isAdmin]  = useRole();
+  const [isAdmin, isTrainer]  = useRole();
+  console.log(isTrainer)
   const { user, loading } = useAuth();
   const lastSignInTime = user.metadata.lastSignInTime; // Assuming this is in GMT
 
@@ -41,6 +42,9 @@ const Profile = () => {
               <div className=" p-5 text-center mt-10">
                 <h5 className="mb-1 text-base bg-red-400 rounded-full font-medium text-gray-900">
                   {isAdmin ? "admin" : ""}
+                </h5>
+                <h5 className="mb-1 text-base bg-red-400 rounded-full font-medium text-gray-900">
+                  {isTrainer ? "Trainer" : ""}
                 </h5>
                 <h5 className="mb-1 text-2xl font-medium text-gray-900">
                   {user.displayName}

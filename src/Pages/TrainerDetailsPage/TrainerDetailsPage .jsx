@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import useAxiosPablic from "../../Hooks/useAxiosPpablic";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query"; 
 import ReactLoading from "react-loading";
 import { Helmet } from "react-helmet";
 import UseAplicationFiner from "../../Hooks/UseAplicationFiner";
@@ -68,7 +68,7 @@ const TrainerDetailsPage = () => {
                       Specialties:
                     </span>
                     <ul className="list-disc list-inside ml-3">
-                      {trainer.specialties.map((specialty, index) => (
+                      {trainer?.specialties.map((specialty, index) => (
                         <li key={index} className="ml-2">
                           {specialty}
                         </li>

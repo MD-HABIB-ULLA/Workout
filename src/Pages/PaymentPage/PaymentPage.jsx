@@ -10,6 +10,7 @@ const stripePromise = loadStripe(
 );
 const PaymentPage = () => {
   const [paymentData, isLoading] = usePayment();
+ 
 
   return (
     <div className="bg-[#141414] pb-10">

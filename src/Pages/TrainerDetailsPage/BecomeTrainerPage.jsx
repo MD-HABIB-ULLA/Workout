@@ -55,7 +55,7 @@ const BeTrainerForm = () => {
       .post("/applictionBecameTrainer", data)
       .then((res) =>{
         if(res){
-          navigate("/dashboard/activity")
+          navigate("/dashboard")
           toast.success("Application added")
         }
       })

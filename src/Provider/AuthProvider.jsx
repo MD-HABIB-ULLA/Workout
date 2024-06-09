@@ -48,8 +48,6 @@ const AuthProvider = ({ children }) => {
       console.log("User profile updated successfully");
     } catch (error) {
       console.error("Error updating user profile:", error);
-    } finally {
-      setLoading(false);
     }
   };
   

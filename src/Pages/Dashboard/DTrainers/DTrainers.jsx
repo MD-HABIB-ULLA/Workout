@@ -2,18 +2,47 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Loading from "../../../Components/Loading/Loading";
 import { FaTrash } from "react-icons/fa6";
+import Swal from "sweetalert2";
 
 const DTrainers = () => {
-    const axiosSecure = useAxiosSecure();
-    const { data: TrainersData = [], isLoading } = useQuery({
-        queryKey: ["TrainersData"],
-        queryFn: async () => {
-        const res = await axiosSecure.get("/trainers");
-        return res.data;
-        },
+  const axiosSecure = useAxiosSecure();
+  const {
+    data: TrainersData = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["TrainersData"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/trainers");
+      return res.data;
+    },
+  });
+  console.log(TrainersData)
+  const handleDelete = (email) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure
+          .delete(`/trainerDelete/${email}`)
+          .then((res) => {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+            console.log(res.data);
+          })
+          .catch((err) => console.log(err));
+      }
     });
-  const handleDelete = (id) => {
-    console.log(id);
   };
   return (
     <div>
@@ -51,7 +80,7 @@ const DTrainers = () => {
                   <td className="py-2 px-4 border-b border-gray-200">
                     {" "}
                     <button
-                      onClick={() => handleDelete(trainer._id)}
+                      onClick={() => handleDelete( trainer.email)}
                       className=" bg-rose-600 px-2 rounded-full py-2"
                     >
                       <FaTrash />
