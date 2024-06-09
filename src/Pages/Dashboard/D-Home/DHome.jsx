@@ -170,6 +170,22 @@ const DHome = () => {
             ) : (
               ""
             )}
+            {isAdmin || isTrainer ? (
+              <NavLink
+                to="/dashboard/addForum"
+                className={({ isActive }) =>
+                  `text-base font-bold   px-6 py-2 mt-4 w-full flex items-center   hover:bg-gray-200 dark:hover:bg-gray-700 duration-500 hover:text-gray-700 dark:hover:text-gray-200 uppercase ${
+                    isActive
+                      ? "   inter  text-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
+                      : "md:text-white text-white"
+                  } `
+                }
+              >
+                <RxActivityLog className="mr-2" /> Add new Forum
+              </NavLink>
+            ) : (
+              ""
+            )}
           </nav>
         </aside>
 

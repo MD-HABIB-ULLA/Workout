@@ -24,6 +24,8 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import TrainerRoute from "./TrainerRoute";
 import DManageClasses from "../Pages/Dashboard/DManageClasses/DManageClasses";
 import AddSession from "../Pages/Dashboard/DManageClasses/AddSession";
+import ComonRoute from "./ComonRoute";
+import AddForum from "../Pages/Dashboard/Addforum/AddForum";
 
 
 
@@ -171,6 +173,14 @@ const Router = createBrowserRouter([
               <TrainerRoute>
                 <AddSession />
               </TrainerRoute>
+            ),
+          },
+          {
+            path: "/dashboard/addForum",
+            element: (
+              <ComonRoute>
+                <AddForum />
+              </ComonRoute>
             ),
           },
         ],
