@@ -6,6 +6,7 @@ import Select from "react-select";
 import Loading from "../../../Components/Loading/Loading";
 import useAxiosPablic from "../../../Hooks/useAxiosPpablic";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet";
 const AddSession = () => {
   const axiosPublic = useAxiosPablic();
   const { data: classesName = [] } = useQuery({
@@ -58,6 +59,9 @@ const AddSession = () => {
 
   return (
     <div>
+        <Helmet>
+        <title>Workout - Add slot</title>
+      </Helmet>
       {isLoading ? (
         <Loading />
       ) : (

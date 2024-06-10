@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Loading from "../../../Components/Loading/Loading";
 import { FaTrash } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const DTrainers = () => {
   const axiosSecure = useAxiosSecure();
@@ -47,6 +48,9 @@ const DTrainers = () => {
   return (
     <div>
       <div className="overflow-x-auto">
+      <Helmet>
+        <title>Workout - Manage Trainers</title>
+      </Helmet>
         <table className="min-w-full bg-[#007BFF] rounded-lg text-white">
           <thead>
             <tr className="">

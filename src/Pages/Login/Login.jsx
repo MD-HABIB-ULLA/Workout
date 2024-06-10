@@ -6,7 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Googlebtn from "../../Components/GoogleBtn/Googlebtn";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
-const Login = () => {
+const   Login = () => {
   window.scrollTo(0, 0);
   const location = useLocation();
   const navigate = useNavigate();

@@ -4,6 +4,7 @@ import Loading from "../../Components/Loading/Loading";
 import ForumPost from "./ForumPost";
 import { Pagination, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 const Community = () => {
   window.scrollTo(0, 0);
   const [totalItem, setTotalItem] = useState(0);
@@ -38,6 +39,9 @@ const Community = () => {
   console.log(communityPost);
   return (
     <div className=" pt-10 md:pt-0 bg-[#141414] min-h-screen pb-10 ">
+        <Helmet>
+        <title>Workout - Community</title>
+      </Helmet>
       <div className="relative  pt-16 w-full space-y-4">
         <h1 className="lg:text-6xl md:text-5xl text-2xl text-center text-white">
           Forum

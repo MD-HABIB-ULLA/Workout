@@ -12,6 +12,7 @@ import { SiGoogleclassroom } from "react-icons/si";
 import { MdAccountBalanceWallet } from "react-icons/md";
 import { RxActivityLog } from "react-icons/rx";
 import UseAplicationFiner from "../../../Hooks/UseAplicationFiner";
+import { Helmet } from "react-helmet";
 const DHome = () => {
   const [isAdmin, isTrainer] = useRole();
   console.log(isAdmin, isTrainer);
@@ -26,6 +27,9 @@ const DHome = () => {
   console.log(applictionBecameTrainer);
   return (
     <div className=" lg:pt-24 pt-20 bg-[#141414] ">
+        <Helmet>
+        <title>Workout - Dashboard</title>
+      </Helmet>
       {" "}
       <div className="flex h-screen  relative border-t-2">
         <aside

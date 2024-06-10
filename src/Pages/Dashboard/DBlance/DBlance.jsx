@@ -12,6 +12,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { Helmet } from "react-helmet";
 
 const DBlance = () => {
   const axiosSecure = useAxiosSecure();
@@ -63,6 +64,9 @@ const DBlance = () => {
   console.log(lastTrans);
   return (
     <div className="">
+      <Helmet>
+        <title>Workout - Balance</title>
+      </Helmet>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         <div className="rounded-lg bg-white flex flex-col">
           <h1 className="bg-blue-600 w-full text-center rounded-t-lg py-2 text-xl text-white uppercase">

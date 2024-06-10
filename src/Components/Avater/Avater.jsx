@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { CiLogin } from "react-icons/ci";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
+import { CgProfile } from "react-icons/cg";
 const Avater = () => {
   const { user, signOutUser, loading } = useAuth();
 
@@ -21,7 +23,7 @@ const Avater = () => {
   // logout logic
   const handleLogoutBtn = () => {
     signOutUser();
-    toast.success("Log out successful")
+    toast.success("Log out successful");
   };
 
   return (
@@ -57,6 +59,15 @@ const Avater = () => {
               <p className="block cursor-default px-4 py-2  text-black text-center">
                 {user.displayName}
               </p>
+            </li>
+            <li className="w-full">
+              <Link
+                to="/dashboard"
+                end
+                className={`text-base font-bold   px-6 py-2 mt-4 w-full flex items-center   hover:bg-gray-200 dark:hover:bg-gray-700 duration-500 hover:text-gray-700 dark:hover:text-gray-200 uppercase `}
+              >
+                <CgProfile className="mr-2" /> Profile
+              </Link>
             </li>
             <li></li>
             <li className="text-white bg-rose-700">

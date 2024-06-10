@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../../../Components/Loading/Loading";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const ApplicationDetails = () => {
   const axiosSecure = useAxiosSecure();
@@ -74,6 +75,9 @@ const ApplicationDetails = () => {
   console.log(trainerData);
   return (
     <div>
+        <Helmet>
+        <title>Workout - Application data</title>
+      </Helmet>
       {isError ? (
         <Loading />
       ) : (

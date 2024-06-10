@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Loading from "../../Components/Loading/Loading";
+import { Helmet } from "react-helmet";
 
 
 const Newsletter = () => {
@@ -18,6 +19,9 @@ const Newsletter = () => {
   return (
     <div>
       <div className="overflow-x-auto">
+      <Helmet>
+        <title>Workout - Newsletters </title>
+      </Helmet>
         <table className="min-w-full bg-[#007BFF] rounded-lg text-white">
           <thead>
             <tr className="">

@@ -3,6 +3,7 @@ import useRole from "../../../Hooks/useRole";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosPablic from "../../../Hooks/useAxiosPpablic";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const AddForum = () => {
   const axiosPublic = useAxiosPablic();
@@ -32,6 +33,9 @@ const AddForum = () => {
 
   return (
     <div>
+        <Helmet>
+        <title>Workout - Add Forum</title>
+      </Helmet>
       <div className="max-w-md mx-auto mt-10">
         <form
           onSubmit={handleSubmit}

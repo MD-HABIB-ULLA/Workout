@@ -6,6 +6,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const DManageClasses = () => {
   const axiosSecure = useAxiosSecure();
@@ -78,6 +79,9 @@ const DManageClasses = () => {
 
   return (
     <div>
+        <Helmet>
+        <title>Workout - Manage Classes</title>
+      </Helmet>
       {isLoading ? (
         <Loading />
       ) : trainerIndividualData.slots.length === 0 ? (
