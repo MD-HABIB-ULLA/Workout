@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const CheckOutForm = () => {
+  window.scrollTo(0, 0);
   const [clientSecret, setClientSecret] = useState("");
   const [paymentData, , refetch] = usePayment();
   const [error, setError] = useState("");

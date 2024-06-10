@@ -20,12 +20,12 @@ const FeaturedClasses = () => {
           burn, to mindful practices like Yoga and Meditation.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2  gap-5 p-1">
         {classesData.map((classItem) => (
           <div
             key={classItem._id}
             to={""}
-            className="bg-opacity-80 backdrop-blur-md duration-500 text-white flex  items-center bg-white border border-gray-200 rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100"
+            className="bg-opacity-80 backdrop-blur-md duration-500 text-white flex  items-center bg-white border border-gray-200 rounded-lg shadow-md md:flex-row  hover:bg-gray-100"
           >
             <img
               className="object-cover  rounded-t-lg h-72  w-48 md:rounded-none md:rounded-s-lg"

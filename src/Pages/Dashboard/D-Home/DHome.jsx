@@ -6,6 +6,7 @@ import { CgProfile } from "react-icons/cg";
 import useRole from "../../../Hooks/useRole";
 import { IoMailOpen } from "react-icons/io5";
 import { FaChalkboardTeacher } from "react-icons/fa";
+import { GiTeacher } from "react-icons/gi";
 import { VscGitStashApply } from "react-icons/vsc";
 import { SiGoogleclassroom } from "react-icons/si";
 import { MdAccountBalanceWallet } from "react-icons/md";
@@ -57,21 +58,34 @@ const DHome = () => {
             >
               <CgProfile className="mr-2" /> Profile
             </NavLink>
-            {isAdmin === false &&
-            isTrainer === false &&
-            applictionBecameTrainer ? (
-              <NavLink
-                to="/dashboard/activity"
-                className={({ isActive }) =>
-                  `text-base font-bold   px-6 py-2 mt-4 w-full flex items-center   hover:bg-gray-200 dark:hover:bg-gray-700 duration-500 hover:text-gray-700 dark:hover:text-gray-200 uppercase ${
-                    isActive
-                      ? "   inter  text-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
-                      : "md:text-white text-white"
-                  } `
-                }
-              >
-                <RxActivityLog className="mr-2" /> Activity log
-              </NavLink>
+            {isAdmin === false && isTrainer === false ? (
+              <>
+                {" "}
+                <NavLink
+                  to="/dashboard/activity"
+                  className={({ isActive }) =>
+                    `text-base font-bold   px-6 py-2 mt-4 w-full flex items-center   hover:bg-gray-200 dark:hover:bg-gray-700 duration-500 hover:text-gray-700 dark:hover:text-gray-200 uppercase ${
+                      isActive
+                        ? "   inter  text-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
+                        : "md:text-white text-white"
+                    } `
+                  }
+                >
+                  <RxActivityLog className="mr-2" /> Activity log
+                </NavLink>
+                <NavLink
+                  to="/dashboard/bookedTrainers"
+                  className={({ isActive }) =>
+                    `text-base font-bold   px-6 py-2 mt-4 w-full flex items-center   hover:bg-gray-200 dark:hover:bg-gray-700 duration-500 hover:text-gray-700 dark:hover:text-gray-200 uppercase ${
+                      isActive
+                        ? "   inter  text-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
+                        : "md:text-white text-white"
+                    } `
+                  }
+                >
+                  <GiTeacher className="mr-2" /> Booked trainers
+                </NavLink>
+              </>
             ) : (
               ""
             )}

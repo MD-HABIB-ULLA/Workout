@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Loading from "../../../Components/Loading/Loading";
 import useAuth from "../../../Hooks/useAuth";
 import useRole from "../../../Hooks/useRole";
@@ -19,6 +20,9 @@ const Profile = () => {
   console.log(isAdmin);
   return (
     <div>
+      <Helmet>
+        <title>Workout - Profile</title>
+      </Helmet>
       {loading ? (
         <Loading />
       ) : (

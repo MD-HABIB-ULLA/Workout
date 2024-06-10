@@ -7,6 +7,7 @@ import Trainer from "../../Components/Trainer/Trainer";
 import Featured from "../../Components/Featured/Featured";
 import FeaturedClasses from "../../Components/FeaturedClasses/FeaturedClasses";
 import NewsletterForm from "../../Components/NewsletterForm/NewsletterForm";
+import RecentForumPost from "../../Components/RecentForumPost/RecentForumPost";
 
 const Home = () => {
   window.scrollTo(0, 0);
@@ -20,9 +21,10 @@ const Home = () => {
       <Title />
       <Gallery />
       <Trainer />
-      <FeaturedClasses/>
+      <FeaturedClasses />
       <Review />
-      <NewsletterForm/>
+      <RecentForumPost />
+      <NewsletterForm />
     </div>
   );
 };

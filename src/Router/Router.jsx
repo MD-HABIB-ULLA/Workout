@@ -26,6 +26,8 @@ import DManageClasses from "../Pages/Dashboard/DManageClasses/DManageClasses";
 import AddSession from "../Pages/Dashboard/DManageClasses/AddSession";
 import ComonRoute from "./ComonRoute";
 import AddForum from "../Pages/Dashboard/Addforum/AddForum";
+import Community from "../Pages/Community/Community";
+import Bookedtrainer from "../Pages/Dashboard/BookedTrainer/Bookedtrainer";
 
 
 
@@ -68,6 +70,10 @@ const Router = createBrowserRouter([
         element: <Classes />,
       },
       {
+        path: "/community",
+        element: <Community />,
+      },
+      {
         path: "/trainers/:id",
         element: <TrainerDetailsPage />,
       },
@@ -108,6 +114,14 @@ const Router = createBrowserRouter([
             element: (
               <PrivateRoute>
                 <DAtivity />
+              </PrivateRoute>
+            ),
+          },
+          {
+            path: "/dashboard/bookedTrainers",
+            element: (
+              <PrivateRoute>
+                <Bookedtrainer />
               </PrivateRoute>
             ),
           },
