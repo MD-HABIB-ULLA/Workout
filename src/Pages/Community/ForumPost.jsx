@@ -2,9 +2,9 @@ import toast from "react-hot-toast";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 
 const ForumPost = ({ post }) => {
-    const handleBtn= (text) =>{
-        toast.success(text)
-    }
+  const handleBtn = (text) => {
+    toast.success(text);
+  };
   console.log(post);
   return (
     <div className="max-w-lg mx-auto mt-8">
@@ -23,12 +23,24 @@ const ForumPost = ({ post }) => {
             </div>
           </div>
           <div className=" flex gap-5    ">
-            <button onClick={()=>handleBtn("Up vote")}  className=" p-2 px-4 border rounded-full bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
-              <FaArrowUp />
-            </button>
-            <button onClick={()=>handleBtn("Dowon vote")} className="p-2 px-4 border rounded-full bg-[#ff0000] font-bold border-[#ff0000] bt text-white hover:bg-transparent hover:text-[#ff0000] duration-500">
-              <FaArrowDown />
-            </button>
+            <div className="flex gap-2 items-center">
+              <button
+                onClick={() => handleBtn("Up vote")}
+                className=" p-2 px-4 border rounded-full bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500"
+              >
+                <FaArrowUp />
+              </button>
+              <p className="text-sm font-bold">{post.upVote}</p>
+            </div>
+            <div className="flex gap-2 items-center">
+              <button
+                onClick={() => handleBtn("Dowon vote")}
+                className="p-2 px-4 border rounded-full bg-[#ff0000] font-bold border-[#ff0000] bt text-white hover:bg-transparent hover:text-[#ff0000] duration-500"
+              >
+                <FaArrowDown />
+              </button>
+              <p className="text-sm font-bold">{post.downVote}</p>
+            </div>
           </div>
         </div>
       </div>
