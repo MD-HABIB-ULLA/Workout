@@ -26,11 +26,8 @@ The Workout website is designed to streamline the process of booking personal tr
 
 
 
-## how to clone it:
+# how to clone it:
 
-# Workout Website
-
-The Workout website is designed to streamline the process of booking personal trainers and scheduling workout sessions. Users can easily book trainers, make payments, and manage their profiles, while trainers have access to their own dashboards to add session slots and track bookings. Admins have the authority to manage trainers and user requests.
 
 ## Tech Stack
 - React
