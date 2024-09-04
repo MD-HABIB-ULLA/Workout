@@ -58,7 +58,7 @@ const Gallery = () => {
  
 
   return (
-    <div className="bg-[#141414]">
+    <div className="bg-[#141414] ">
       <div>
         <ImageList variant="quilted" cols={4} rowHeight={151}>
           {itemData.map((item) => (

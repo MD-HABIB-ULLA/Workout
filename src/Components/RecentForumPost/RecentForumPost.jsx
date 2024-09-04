@@ -20,13 +20,13 @@ const RecentForumPost = () => {
   };
   return (
     <div
-      className=" min-h-screen bg-cover bg-center bg-fixed"
+      className="  bg-cover bg-center bg-fixed"
       style={{
         backgroundImage:
           "url(https://technext.github.io/crossfits/images/hero_bg_2.jpg)",
       }}
     >
-      <div className="relative py-10 w-full space-y-4">
+      <div className="relative py-10 w-full space-y-4 max-w-7xl m-auto px-5 md:px-10">
         <h1 className="lg:block hidden  uppercase text-7xl mt-0  absolute -left-0 outline-text-gym bottom-0 opacity-30">
           Features
         </h1>
@@ -41,7 +41,7 @@ const RecentForumPost = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <div className=" md:px-10 pb-10 grid md:grid-cols-2 grid-cols-1 px-5">
+        <div className=" md:px-10 pb-10 grid md:grid-cols-2 grid-cols-1 px-5 max-w-7xl m-auto">
           {forumpostHome.map((post) => (
           <Link to={"/community"}  key={post._id}>  <div
          

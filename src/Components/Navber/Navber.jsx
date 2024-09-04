@@ -107,7 +107,6 @@ const Navber = () => {
   );
   return (
     <>
-      {" "}
       <div
         className={`${
           !scrolled
@@ -115,71 +114,32 @@ const Navber = () => {
             : "bg-black bg-opacity-40 backdrop-blur-md duration-500 text-white  "
         } w-full fixed z-50    `}
       >
-        <nav className="">
-          <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-            <Link to="/">
-              {" "}
+        <nav className="h-[70px] flex items-center  px-5 py-2">
+          <div className="h-full flex justify-between w-full items-center">
+            <div className="h-full ">
               <img
                 src="https://i.ibb.co/8bY004Y/2024-05-26-00-05-25-Window-removebg-preview.png"
-                className="h-12"
                 alt=""
+                className="h-full"
               />
-            </Link>
-
-            <div className="flex items-center">
-              <div className="md:hidden block">
-                {user?.photoURL ? (
-                  <Avater />
-                ) : (
-                  <Link to={"/login"}>
-                    <button className="  px-4 p-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
-                      {" "}
-                      Login
-                    </button>
-                  </Link>
-                )}
-              </div>
-              <button
-                type="button"
-                className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden  focus:outline-none"
-                aria-controls="mega-menu-full"
-                aria-expanded={openNav}
-                onClick={toggleDropdown}
-              >
-                <span className="sr-only">Open main menu</span>
-                {openNav ? (
-                  <RxCross2 className="text-white text-3xl"></RxCross2>
-                ) : (
-                  <IoMenu className="text-white text-3xl"></IoMenu>
-                )}
-              </button>
             </div>
+            <div className="flex items-center gap-3">
+              {/* list of nav ber  */}
 
-            <div
-              className={`items-center justify-between rounded-lg duration-500   font-medium w-full md:flex md:bg-transparent bg-gray-600  md:w-auto md:order-1 ${
-                openNav ? "block " : "hidden"
-              }`}
-              id="mega-menu-full"
-            >
-              <ul className="flex flex-col gap-3 rounded-lg p-4 md:p-0 mt-4md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
-                {list}
-              </ul>
-              <div className="hidden md:block ml-3">
-                {loading ? (
-                  <button className="px-4 py-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
-                    <div className="flex items-center justify-center">
-                      <div className="w-5 h-5 border-2 border-t-blue-400 animate-spin rounded-full"></div>
-                    </div>
+              <div>
+                <ul className="flex space-x-3">{list}</ul>
+              </div>
+              <div className="flex gap-3">
+                <Link to={"/login"}>
+                  <button className=" px-4 p-2 rounded-full border bg-[#007BFF] text-sm font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                   Log in 
                   </button>
-                ) : user?.photoURL ? (
-                  <Avater />
-                ) : (
-                  <Link to="/login">
-                    <button className="px-4 py-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
-                      Login
-                    </button>
-                  </Link>
-                )}
+                </Link>
+                <Link to={"/signup"}>
+                  <button className=" px-4 p-2 rounded-full text-sm border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                   Register
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -190,3 +150,72 @@ const Navber = () => {
 };
 
 export default Navber;
+
+//  <nav className="">
+//           <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+//             <Link to="/">
+//               {" "}
+//               <img
+//                 src="https://i.ibb.co/8bY004Y/2024-05-26-00-05-25-Window-removebg-preview.png"
+//                 className="h-12"
+//                 alt=""
+//               />
+//             </Link>
+
+//             <div className="flex items-center">
+//               <div className="md:hidden block">
+//                 {user?.photoURL ? (
+//                   <Avater />
+//                 ) : (
+//                   <Link to={"/login"}>
+//                     <button className="  px-4 p-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+//                       {" "}
+//                       Login
+//                     </button>
+//                   </Link>
+//                 )}
+//               </div>
+//               <button
+//                 type="button"
+//                 className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden  focus:outline-none "
+//                 aria-controls="mega-menu-full"
+//                 aria-expanded={openNav}
+//                 onClick={toggleDropdown}
+//               >
+//                 {openNav ? (
+//                   <RxCross2 className="text-white text-3xl"></RxCross2>
+//                 ) : (
+//                   <IoMenu className="text-white text-3xl"></IoMenu>
+//                 )}
+//               </button>
+//             </div>
+
+//             <div
+//               className={`items-center justify-between rounded-lg duration-500   font-medium w-full md:flex md:bg-transparent bg-gray-600  md:w-auto md:order-1 ${
+//                 openNav ? "block " : "hidden"
+//               }`}
+//               id="mega-menu-full"
+//             >
+//               <ul className="flex flex-col gap-3 rounded-lg p-4 md:p-0 mt-4md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
+//                 {list}
+//               </ul>
+//               <div className="hidden md:block ml-3">
+//                 {loading ? (
+//                   <button className="px-4 py-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+//                     <div className="flex items-center justify-center">
+//                       <div className="w-5 h-5 border-2 border-t-blue-400 animate-spin rounded-full"></div>
+//                     </div>
+//                   </button>
+//                 ) : user?.photoURL ? (
+//                   <Avater />
+//                 ) : (
+//                   <Link to="/login">
+//                     <button className="px-4 py-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+//                       Login
+//                     </button>
+//                   </Link>
+//                 )}
+//               </div>
+//             </div>
+//           </div>
+//         </nav>

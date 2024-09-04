@@ -98,7 +98,7 @@ const NewsletterForm = () => {
               gradientTransform="translate(512 512) rotate(90) scale(512)"
             >
               <stop stopColor="#7775D6"></stop>
-              <stop offset="1" stopColor="#7ED321" stopOpacity="0"></stop>
+              <stop offset="1" stopColor="#007BFF" stopOpacity="0"></stop>
             </radialGradient>
           </defs>
         </svg>

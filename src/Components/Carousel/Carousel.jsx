@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const CarouselBanner = () => {
   return (
-    <div className="relative">
+    <div className="">
       <h1 className="lg:block hidden  uppercase text-6xl mt-0 absolute rotate-90 -right-20 outline-text-gym top-1/2 z-2">
         workout
       </h1>
@@ -16,42 +16,47 @@ const CarouselBanner = () => {
         infiniteLoop="true"
       >
         <div
-          className=" lg:h-screen md:h-[60vh]  h-[40vh] bg-center bg-cover "
+          className="lg:h-screen relative  bg-top bg-cover "
           style={{
             backgroundImage:
-              "url(https://i.ibb.co/3c0DS1J/h1-parallax-img.jpg)",
+              "url(https://i.ibb.co/qRdnCyp/background-image.png)",
           }}
         >
-          <div className="h-full bg-black bg-opacity-50 flex items-start text-center space-y-5 justify-between ">
-            {" "}
-            <div className="max-w-7xl m-auto w-full   space-y-5 lg:p-0 md:p-10 p-5">
-              <h1 className="text-white text-center lg:text-7xl md:text-2xl text-2xl  ">
-                DISCOVER THE HIDDEN ALTER <br />{" "}
-                <span className="outline-text">EGO OF YOUR BODY</span>{" "}
-              </h1>
-              <div className="text-white m-auto text-center w-[60%] md:block hidden ">
-                {" "}
-                Welcome to workout, where the night is not just for sleep; it's
-                for sweat, strength, and self-discovery. Step into our world of
-                after-hours fitness, where the neon lights guide your path to
-                greatness.{" "}
-              </div>
-              <div>
-                <Link to={"/classes"}>
-                  <button className=" px-4 p-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+          <h1 className="lg:block hidden  uppercase text-6xl mt-0 absolute rotate-90 -right-20 outline-text-gym top-1/2  -z-30">
+            workout
+          </h1>
+          <div className="h-full pt-16 ">
+            <div className="h-full   flex items-center   py-5">
+              <div className="my-auto   bg-opacity-50   text-center space-y-5  mx-auto">
+                <div className="max-w-7xl m-auto w-full     space-y-5 lg:p-0 md:p-10 p-5">
+                  <h1 className="text-white text-center lg:text-7xl md:text-2xl text-2xl z-[10px]  ">
+                    DISCOVER THE HIDDEN ALTER <br />{" "}
+                    <span className="outline-text">EGO OF YOUR BODY</span>{" "}
+                  </h1>
+                  <div className="text-white m-auto text-center w-[60%] md:block hidden ">
                     {" "}
-                    Join Now
-                  </button>
-                </Link>
+                    Welcome to workout, where the night is not just for sleep;
+                    it's for sweat, strength, and self-discovery. Step into our
+                    world of after-hours fitness, where the neon lights guide
+                    your path to greatness.{" "}
+                  </div>
+                  <div>
+                    <Link to={"/classes"}>
+                      <button className=" px-4 p-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                        {" "}
+                        Join Now
+                      </button>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div
+        {/* <div
           className=" h-full bg-center bg-cover"
           style={{
-            backgroundImage:
-              "url(https://i.ibb.co/gw55gCX/hero.jpg)",
+            backgroundImage: "url(https://i.ibb.co/gw55gCX/hero.jpg)",
           }}
         >
           <div className="h-full bg-black bg-opacity-50 flex items-start  text-center">
@@ -80,8 +85,7 @@ const CarouselBanner = () => {
         <div
           className=" h-full bg-center bg-cover"
           style={{
-            backgroundImage:
-              "url(https://i.ibb.co/bbHTGYd/footer-bg.jpg)",
+            backgroundImage: "url(https://i.ibb.co/bbHTGYd/footer-bg.jpg)",
           }}
         >
           <div className="h-full bg-black bg-opacity-50 flex items-start  text-center">
@@ -106,7 +110,7 @@ const CarouselBanner = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </Carousel>
     </div>
   );
