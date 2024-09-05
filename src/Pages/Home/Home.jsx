@@ -12,7 +12,7 @@ import RecentForumPost from "../../Components/RecentForumPost/RecentForumPost";
 const Home = () => {
   window.scrollTo(0, 0);
   return (
-    <div>
+    <div className="bg-[#141414]">
       <Helmet>
         <title>Workout - Home</title>
       </Helmet>

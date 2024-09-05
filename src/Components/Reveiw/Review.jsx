@@ -48,12 +48,12 @@ const Review = () => {
 
   return (
     <div>
-      <div className="container text-center m-auto mt-10 md:mt-28 relative">
+      <div className="container text-center m-auto mt-10 md:mt-28 md:mb-20 mb-10 relative">
         <h1 className="lg:block hidden  uppercase text-9xl mt-0 absolute -rotate-90 -right-60 outline-text-gym top-36">
           REVIEWS
         </h1>
         <div>
-          <h1 className="lg:text-6xl md:text-5xl text-2xl text-center text-black">
+          <h1 className="lg:text-6xl md:text-5xl text-2xl text-center text-white">
             <span className="text-[#007BFF]">REVIEWS</span> FROM <br />
             OUR CLIENT
           </h1>
@@ -81,11 +81,11 @@ const Review = () => {
                   alt={review.name}
                 />
               </div>
-              <div className="text-black">
+              <div className="text-white">
                 <p>{review.title}</p>
                 <h1>{review.name}</h1>
               </div>
-              <div className=" text-black  md:text-base text-sm font-thin ">
+              <div className=" text-white  md:text-base text-sm font-thin ">
                 {review.review}
               </div>
             </SwiperSlide>
