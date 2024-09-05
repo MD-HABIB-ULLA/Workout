@@ -34,7 +34,7 @@ const RecentForumPost = () => {
           Explore Our <br /> Recent{" "}
           <span className="text-[#007BFF]">Forum post</span>
         </h1>
-        <p className="text-center text-white  text-xl md:px-20">
+        <p className="text-center text-white  text-sm md:text-base md:px-20">
         This component elegantly presents forum posts, intelligently truncating lengthy content while preserving readability. By condensing extensive posts to a digestible length and appending an ellipsis for extended text, it maintains a visually appealing interface. 
         </p>
       </div>

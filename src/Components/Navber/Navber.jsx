@@ -113,7 +113,7 @@ const Navber = () => {
             : "bg-black bg-opacity-40 backdrop-blur-md duration-500 text-white  "
         } w-full fixed z-50    `}
       >
-        <nav className="h-[70px] flex items-center  px-5 py-2">
+        <nav className="md:h-[70px] h-14 flex items-center  px-5 py-2">
           <div className="h-full flex justify-between w-full items-center">
             <div className="h-full ">
               <img
@@ -124,22 +124,25 @@ const Navber = () => {
             </div>
             <div className="flex items-center gap-3">
               {/* list of nav ber  */}
-
-              <div>
+              <div className="md:block hidden ">
                 <ul className="flex space-x-5 ">{list}</ul>
               </div>
-              <div className="flex gap-3">
-                <Link to={"/login"}>
-                  <button className=" px-4 p-2 rounded-full border bg-[#007BFF] text-sm font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
-                   Log in 
-                  </button>
-                </Link>
-                <Link to={"/signup"}>
-                  <button className=" px-4 p-2 rounded-full text-sm border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
-                   Register
-                  </button>
-                </Link>
-              </div>
+           {!loading ?    user ? (
+                <Avater />
+              ) : (
+                <div className="flex gap-3">
+                  <Link to={"/login"}>
+                    <button className=" px-4 p-2 md:text-sm text-xs rounded-full border bg-[#007BFF]  font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                      Log in
+                    </button>
+                  </Link>
+                  <Link to={"/signup"}>
+                    <button className=" hidden lg:block px-4 p-2 rounded-full md:text-sm text-xs border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                      Register
+                    </button>
+                  </Link>
+                </div>
+              ) :""}
             </div>
           </div>
         </nav>

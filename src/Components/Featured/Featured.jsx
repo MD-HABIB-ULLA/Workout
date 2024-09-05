@@ -51,7 +51,7 @@ const Featured = () => {
           Explore Our <br /> Top{" "}
           <span className="text-[#007BFF]">Features</span>
         </h1>
-        <p className="text-center opacity-60 text-xl md:px-20">
+        <p className="text-center opacity-60 md:text-base text-sm md:px-20">
           Discover the exceptional features that make our gym stand out. Each
           card below highlights a key aspect of our services designed to enhance
           your fitness journey.

@@ -8,12 +8,12 @@ const FeaturedClasses = () => {
 
   return (
     <div className="container m-auto lg:pt-20">
-      <div className="relative  w-full space-y-4 mb-10 ">
+      <div className="relative  w-full space-y-4 mb-10 px-5 py-10">
         <h1 className="lg:text-6xl md:text-5xl text-2xl text-center text-black uppercase">
           Feature
           <span className="text-[#007BFF]"> classes</span>
         </h1>
-        <p className="text-center opacity-60 text-xl ">
+        <p className="text-center opacity-60 md:text-base text-sm  ">
           Explore a diverse range of classes meticulously crafted to cater to
           every fitness goal and preference. From high-intensity workouts like
           HIIT and CrossFit, aimed at pushing your limits and maximizing calorie

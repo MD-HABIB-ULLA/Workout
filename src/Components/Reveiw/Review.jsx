@@ -76,7 +76,7 @@ const Review = () => {
               <div className="flex justify-center">
                 <img
                   src={review.image}
-                  className="avatar rounded-full h-20 w-20"
+                  className="avatar rounded-full h-20 w-20 object-cover object-center"
                   
                   alt={review.name}
                 />
@@ -85,7 +85,7 @@ const Review = () => {
                 <p>{review.title}</p>
                 <h1>{review.name}</h1>
               </div>
-              <div className=" text-black headline1 font-thin text-xl">
+              <div className=" text-black  md:text-base text-sm font-thin ">
                 {review.review}
               </div>
             </SwiperSlide>

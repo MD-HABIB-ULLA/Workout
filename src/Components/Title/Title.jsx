@@ -5,7 +5,7 @@ const Title = () => {
         <h1 className="lg:text-6xl md:text-5xl text-2xl text-center text-black">
           WHAT IS FUNCTIONAL <br /> <span className="text-[#007BFF]">FITNESS</span> ALL ABOUT
         </h1>
-        <p className="text-center opacity-60 text-xl md:px-20">At Workout , we believe that every journey to fitness is unique. Whether you are a seasoned athlete or just starting your fitness journey, our state-of-the-art facilities, expert trainers, and diverse range of classes cater to individuals of all fitness levels and goals.</p>
+        <p className="text-center md:text-base text-sm opacity-60 md:px-20">At Workout , we believe that every journey to fitness is unique. Whether you are a seasoned athlete or just starting your fitness journey, our state-of-the-art facilities, expert trainers, and diverse range of classes cater to individuals of all fitness levels and goals.</p>
       </div>
   );
 };
