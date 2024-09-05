@@ -14,7 +14,7 @@ const CarouselBanner = () => {
                   DISCOVER THE HIDDEN ALTER <br />{" "}
                   <span className="outline-text">EGO OF YOUR BODY</span>{" "}
                 </h1>
-                <div className="text-white m-auto text-center w-[60%] md:block hidden ">
+                <div className="text-white lg:text-base text-sm m-auto text-center w-[60%] md:block hidden ">
                   {" "}
                   Welcome to workout, where the night is not just for sleep;
                   it's for sweat, strength, and self-discovery. Step into our
@@ -23,7 +23,7 @@ const CarouselBanner = () => {
                 </div>
                 <div>
                   <Link to={"/classes"}>
-                    <button className=" px-4 p-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                    <button className=" md:text-base text-sm px-4 p-2 rounded-full border bg-[#007BFF] font-bold border-[#007BFF]  text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
                       {" "}
                       Join Now
                     </button>

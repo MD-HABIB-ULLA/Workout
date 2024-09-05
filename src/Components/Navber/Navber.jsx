@@ -4,11 +4,14 @@ import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import useAuth from "../../Hooks/useAuth";
 import Avater from "../Avater/Avater";
+import { FaBars } from "react-icons/fa";
+import toast from "react-hot-toast";
+import { CiLogin } from "react-icons/ci";
 
 const Navber = () => {
   const [openNav, setOpenNav] = useState(false);
 
-  const { user, loading } = useAuth();
+  const { user, loading, signOutUser } = useAuth();
 
   const toggleDropdown = () => {
     setOpenNav(!openNav);
@@ -26,6 +29,10 @@ const Navber = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const handleLogoutBtn = () => {
+    signOutUser();
+    toast.success("Log out successful");
+  };
   const list = (
     <>
       <li>
@@ -116,33 +123,95 @@ const Navber = () => {
         <nav className="md:h-[70px] h-14 flex items-center  px-5 py-2">
           <div className="h-full flex justify-between w-full items-center">
             <div className="h-full ">
-              <img
-                src="https://i.ibb.co/8bY004Y/2024-05-26-00-05-25-Window-removebg-preview.png"
-                alt=""
-                className="h-full"
-              />
+              <Link to={"/"}>
+                <img
+                  src="https://i.ibb.co/8bY004Y/2024-05-26-00-05-25-Window-removebg-preview.png"
+                  alt=""
+                  className="h-full"
+                />
+              </Link>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-1  justify-end items-center gap-3">
               {/* list of nav ber  */}
-              <div className="md:block hidden ">
+              <div className="md:block hidden  ">
                 <ul className="flex space-x-5 ">{list}</ul>
               </div>
-           {!loading ?    user ? (
-                <Avater />
-              ) : (
-                <div className="flex gap-3">
-                  <Link to={"/login"}>
-                    <button className=" px-4 p-2 md:text-sm text-xs rounded-full border bg-[#007BFF]  font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
-                      Log in
-                    </button>
-                  </Link>
-                  <Link to={"/signup"}>
-                    <button className=" hidden lg:block px-4 p-2 rounded-full md:text-sm text-xs border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
-                      Register
-                    </button>
-                  </Link>
+              <div className="flex items-center">
+                {!loading ? (
+                  user ? (
+                    <Avater />
+                  ) : (
+                    <div className="flex gap-3">
+                      <Link to={"/login"}>
+                        <button className=" px-4 p-2 md:text-sm text-xs rounded-full border bg-[#007BFF]  font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                          Log in
+                        </button>
+                      </Link>
+                      <Link to={"/signup"}>
+                        <button className=" hidden lg:block px-4 p-2 rounded-full md:text-sm text-xs border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                          Register
+                        </button>
+                      </Link>
+                    </div>
+                  )
+                ) : (
+                  ""
+                )}
+              </div>
+              <div>
+                <div className="drawer">
+                  <input
+                    id="my-drawer"
+                    type="checkbox"
+                    className="drawer-toggle"
+                  />
+                  <div className="drawer-content md:hidden block">
+                    {/* Page content here */}
+                    <label
+                      htmlFor="my-drawer"
+                      className="  drawer-button text-2xl text-white cursor-pointer"
+                    >
+                      <FaBars />
+                    </label>
+                  </div>
+                  <div className="drawer-side">
+                    <label
+                      htmlFor="my-drawer"
+                      aria-label="close sidebar"
+                      className="drawer-overlay"
+                    ></label>
+                    <ul className="menu  bg-black  min-h-full w-80 p-4">
+                      {/* Sidebar content here */}
+                      {list}
+                      {user ? (
+                        <li className="text-white bg-error rounded-lg">
+                          <a
+                            href="#"
+                            onClick={handleLogoutBtn}
+                            className="gap-3
+               px-4 py-2   flex items-center"
+                          >
+                            <CiLogin className="text-xl " /> Sign out
+                          </a>
+                        </li>
+                      ) : (
+                        <div className="flex flex-col gap-3 w-full">
+                          <Link to={"/login"} className="w-full">
+                            <button className="w-full px-4 p-2 md:text-sm text-xs rounded-full border bg-[#007BFF]  font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                              Log in
+                            </button>
+                          </Link>
+                          <Link to={"/signup"} className="w-full">
+                            <button className=" w-full  px-4 p-2 rounded-full md:text-sm text-xs border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+                              Register
+                            </button>
+                          </Link>
+                        </div>
+                      )}
+                    </ul>
+                  </div>
                 </div>
-              ) :""}
+              </div>
             </div>
           </div>
         </nav>
@@ -152,4 +221,3 @@ const Navber = () => {
 };
 
 export default Navber;
-
