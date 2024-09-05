@@ -13,7 +13,7 @@ const FeaturedClasses = () => {
           Feature
           <span className="text-[#007BFF]"> classes</span>
         </h1>
-        <p className="text-center opacity-60 md:text-white text-sm  ">
+        <p className="text-center opacity-60 text-white text-sm  ">
           Explore a diverse range of classes meticulously crafted to cater to
           every fitness goal and preference. From high-intensity workouts like
           HIIT and CrossFit, aimed at pushing your limits and maximizing calorie
