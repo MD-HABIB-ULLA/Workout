@@ -1,7 +1,6 @@
 import FeaturedCard from "./FeaturedCard";
 
 const Featured = () => {
-  
   const features = [
     {
       image: "https://i.ibb.co/6NdDpWb/fitness.png",
@@ -42,7 +41,7 @@ const Featured = () => {
   ];
 
   return (
-    <div >
+    <div>
       <div className="relative lg:py-28 md:py-16 py-10 w-full space-y-4 max-w-7xl m-auto px-5">
         <h1 className="lg:block hidden  uppercase text-7xl mt-0  absolute -left-0 outline-text-gym bottom-0 opacity-30">
           Features
@@ -62,19 +61,19 @@ const Featured = () => {
           backgroundImage:
             "url(https://demo3.eightheme.com/hercules/wp-content/uploads/sites/11/2022/04/athletic-man-with-a-naked-torso-is-doing-exercises-2023-11-27-05-27-44-utc.jpg)",
         }}
-        className="bg-center bg-cover gap-10 p-10 bg-fixed"
+        className="bg-center bg-cover gap-10 py-5 bg-fixed"
       >
-     <div className="grid grid-cols-1 gap-3 md:grid-cols-2 max-w-7xl px-5 md:px-10 m-auto lg:grid-cols-3  ">
-     {features.map((feature) => (
-          <div key={feature.title}>
-            <FeaturedCard
-              image={feature.image}
-              title={feature.title}
-              featureDes={feature.description}
-            />
-          </div>
-        ))}
-     </div>
+        <div className="grid gap-3 grid-cols-2 max-w-7xl px-5 md:px-10 m-auto lg:grid-cols-3  ">
+          {features.map((feature) => (
+            <div key={feature.title}>
+              <FeaturedCard
+                image={feature.image}
+                title={feature.title}
+                featureDes={feature.description}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
