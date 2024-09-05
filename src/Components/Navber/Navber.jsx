@@ -28,12 +28,11 @@ const Navber = () => {
   }, []);
   const list = (
     <>
-      {" "}
       <li>
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `text-base font-bold text-white   uppercase ${
+            `text-sm font-bold text-white   uppercase ${
               isActive
                 ? "   inter border-2 border-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
                 : "md:text-white"
@@ -47,7 +46,7 @@ const Navber = () => {
         <NavLink
           to="/trainers"
           className={({ isActive }) =>
-            `text-base font-bold text-white   uppercase ${
+            `text-sm font-bold text-white   uppercase ${
               isActive
                 ? "   inter border-2 border-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
                 : "md:text-white"
@@ -61,7 +60,7 @@ const Navber = () => {
         <NavLink
           to="/classes"
           className={({ isActive }) =>
-            `text-base font-bold text-white   uppercase ${
+            `text-sm font-bold text-white   uppercase ${
               isActive
                 ? "   inter border-2 border-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
                 : "md:text-white"
@@ -76,7 +75,7 @@ const Navber = () => {
           <NavLink
             to="/dashboard"
             className={({ isActive }) =>
-              `text-base font-bold text-white   uppercase ${
+              `text-sm font-bold text-white   uppercase ${
                 isActive
                   ? "   inter border-2 border-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
                   : "md:text-white"
@@ -93,7 +92,7 @@ const Navber = () => {
         <NavLink
           to="/community"
           className={({ isActive }) =>
-            `text-base font-bold text-white   uppercase ${
+            `text-sm font-bold text-white   uppercase ${
               isActive
                 ? "   inter border-2 border-[#007BFF] border-x-0 rounded-none border-t-0 bg-transparent"
                 : "md:text-white"
@@ -127,7 +126,7 @@ const Navber = () => {
               {/* list of nav ber  */}
 
               <div>
-                <ul className="flex space-x-3">{list}</ul>
+                <ul className="flex space-x-5 ">{list}</ul>
               </div>
               <div className="flex gap-3">
                 <Link to={"/login"}>
