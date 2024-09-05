@@ -43,7 +43,7 @@ const Featured = () => {
 
   return (
     <div >
-      <div className="relative lg:py-28 md:py-16 py-10 w-full space-y-4 max-w-7xl m-auto">
+      <div className="relative lg:py-28 md:py-16 py-10 w-full space-y-4 max-w-7xl m-auto px-5">
         <h1 className="lg:block hidden  uppercase text-7xl mt-0  absolute -left-0 outline-text-gym bottom-0 opacity-30">
           Features
         </h1>
