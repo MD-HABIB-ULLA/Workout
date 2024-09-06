@@ -18,10 +18,11 @@ const Home = () => {
       </Helmet>
       <CarouselBanner />
       <Featured />
+      <FeaturedClasses />
+
       <Title />
       <Gallery />
       <Trainer />
-      <FeaturedClasses />
       <Review />
       <RecentForumPost />
       <NewsletterForm />
