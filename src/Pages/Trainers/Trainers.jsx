@@ -39,19 +39,22 @@ const Trainers = () => {
             />
           </div>
         ) : (
-          <div className="grid  md:grid-cols-2 grid-cols-1 gap-3 ">
+          <div className="grid  lg:grid-cols-2 grid-cols-1 gap-3 ">
             {trainers.map((trainer) => (
-              <div key={trainer._id}>
+              <Link to={`/trainers/${trainer._id}`} className="cursor-default" key={trainer._id}>
                 <div className="h-52  shadow-black border border-gray-400/5 shadow-sm p-2 group rounded-[15px] overflow-hidden">
                   <div className="h-full flex gap-3">
-                    <div className="overflow-hidden h-full w-[200px] rounded-[10px]">
+                    <Link
+                      to={`/trainers/${trainer._id}`}
+                      className="overflow-hidden h-full w-[200px] rounded-[10px]"
+                    >
                       <img
                         src={trainer.images}
                         alt={trainer.name}
-                        className="h-full w-full group-hover:scale-110 duration-500 object-cover object-top "
+                        className="h-full w-full group-hover:scale-110 duration-500 object-cover object-top cursor-pointer"
                       />
-                    </div>
-                    <div className="text-white flex-1">
+                    </Link>
+                    <div className="text-white flex-1 md:space-y-2 space-y-1">
                       <div className="flex justify-between w-full relative">
                         <h2 className="text-2xl">{trainer.name}</h2>
                         <div className="absolute right-0 ">
@@ -60,10 +63,54 @@ const Trainers = () => {
                           </p>
                         </div>
                       </div>
+                      <div>
+                        <p className="capitalize font-bold text-sm text-gray-300">
+                          expertise :
+                        </p>
+                        <div className="flex flex-wrap gap-1">
+                          {trainer.specialties
+                            .slice(0, 3)
+                            .map((specialty, index) => (
+                              <p
+                                key={index}
+                                className="text-xs font-bold bg-white text-gray-600 px-2 mt-1 rounded-full border border-gray-500/15 "
+                              >
+                                {specialty}
+                              </p>
+                            ))}
+                        </div>
+                      </div>
+                      {trainer.slots.length !== 0 ? (
+                        <div>
+                          <p className="capitalize font-bold text-sm text-gray-300">
+                            Available slots :-
+                          </p>
+                          <div className="flex flex-col flex-wrap gap-[2px]">
+                            {trainer.slots.slice(0, 3).map((slot, index) => (
+                              <Link
+                                to={`/trainerbooking?id=${trainer._id}&slot=${slot.name}`}
+                                key={index}
+                                className="md:text-xs text-[10px]   cursor-pointer  border bg-[#007BFF]/30 font-bold border-white   hover:bg-transparent hover:text-[#007BFF] duration-500 text-white py-[2px] px-2 mt-1 rounded-full  border-gray-500/15 "
+                              >
+                                {slot.name} - {slot.time}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="space-y-3">
+                          <p className="capitalize font-bold text-sm text-gray-300">
+                            No slot available
+                          </p>
+                          <p className="capitalize  text-xs text-gray-300">
+                            {trainer.quote}
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
