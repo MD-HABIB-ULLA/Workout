@@ -16,7 +16,7 @@ const Trainers = () => {
   });
   console.log(trainers);
   return (
-    <div className=" pt-10 md:pt-0 bg-[#141414] max-w-7xl md:px-10 px-2 pb-10 ">
+    <div className=" pt-10 md:pt-0  max-w-7xl md:px-10 px-2 pb-10 mx-auto ">
       <Helmet>
         <title>Workout - Trainers</title>
       </Helmet>
@@ -29,7 +29,7 @@ const Trainers = () => {
         </div>
 
         {isLoading ? (
-          <div className="min-h-screen w-full flex items-center justify-center">
+          <div className=" w-full flex items-center justify-center">
             {" "}
             <ReactLoading
               type={"spin"}
@@ -90,7 +90,7 @@ const Trainers = () => {
                               <Link
                                 to={`/trainerbooking?id=${trainer._id}&slot=${slot.name}`}
                                 key={index}
-                                className="md:text-xs text-[10px]   cursor-pointer  border bg-[#007BFF]/30 font-bold border-white   hover:bg-transparent hover:text-[#007BFF] duration-500 text-white py-[2px] px-2 mt-1 rounded-full  border-gray-500/15 "
+                                className="md:text-xs text-[10px]   cursor-pointer  border bg-[#007BFF]/30 font-bold   hover:bg-transparent hover:text-[#007BFF] duration-500 text-white py-[2px] px-2 mt-1 rounded-full  border-gray-500/15 "
                               >
                                 {slot.name} - {slot.time}
                               </Link>
