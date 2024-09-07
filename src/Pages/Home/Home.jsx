@@ -19,7 +19,6 @@ const Home = () => {
       <CarouselBanner />
       <Featured />
       <FeaturedClasses />
-
       <Title />
       <Gallery />
       <Trainer />
