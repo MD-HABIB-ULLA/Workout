@@ -16,7 +16,7 @@ const Trainers = () => {
   });
   console.log(trainers);
   return (
-    <div className=" pt-10 md:pt-0 bg-[#141414] min-h-screen pb-10 ">
+    <div className=" pt-10 md:pt-0 bg-[#141414] max-w-7xl md:px-10 px-5 pb-10 ">
       <Helmet>
         <title>Workout - Trainers</title>
       </Helmet>
@@ -73,7 +73,7 @@ const Trainers = () => {
                             .map((specialty, index) => (
                               <p
                                 key={index}
-                                className="text-xs font-bold bg-white text-gray-600 px-2 mt-1 rounded-full border border-gray-500/15 "
+                                className="md:text-sm text-[8px] font-bold bg-white text-gray-600 px-2 mt-1 rounded-full border border-gray-500/15 "
                               >
                                 {specialty}
                               </p>
