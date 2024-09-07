@@ -16,7 +16,7 @@ const Trainers = () => {
   });
   console.log(trainers);
   return (
-    <div className=" pt-10 md:pt-0 bg-[#141414] max-w-7xl md:px-10 px-5 pb-10 ">
+    <div className=" pt-10 md:pt-0 bg-[#141414] max-w-7xl md:px-10 px-2 pb-10 ">
       <Helmet>
         <title>Workout - Trainers</title>
       </Helmet>
