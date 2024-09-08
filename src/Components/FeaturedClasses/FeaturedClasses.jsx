@@ -93,6 +93,18 @@ const FeaturedClasses = () => {
                 <h1 className="text-3xl  group-hover:text-4xl duration-500">
                   {classItem.name}
                 </h1>
+                <div className="absolute top-0 bg-black bg-opacity-30 backdrop-blur-sm px-3 py-1 rounded-b-xl">
+                  <div>
+                    <img
+                      src="https://i.ibb.co.com/ypVCycY/favorite.png"
+                      alt=""
+                      className="h-7 w-7"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <p className="text-sm font-bold">{classItem.bookings}</p>
+                  </div>
+                </div>
                 <div
                   className="absolute text-xs right-2 top-2 bg-black text-white
                  rounded-md px-3 py-2 text-center"
