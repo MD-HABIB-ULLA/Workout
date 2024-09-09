@@ -42,7 +42,7 @@ const Trainers = () => {
           <div className="grid  lg:grid-cols-2 grid-cols-1 gap-3 ">
             {trainers.map((trainer) => (
               <Link to={`/trainers/${trainer._id}`} className="cursor-default" key={trainer._id}>
-                <div className="h-52  shadow-black border border-gray-400/5 shadow-sm p-2 group rounded-[15px] overflow-hidden">
+                <div className="h-52  shadow-black border border-gray-400/15 shadow-sm p-2 group rounded-[15px] overflow-hidden">
                   <div className="h-full flex gap-3">
                     <Link
                       to={`/trainers/${trainer._id}`}
