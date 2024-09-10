@@ -9,6 +9,7 @@ import FeaturedClasses from "../../Components/FeaturedClasses/FeaturedClasses";
 import NewsletterForm from "../../Components/NewsletterForm/NewsletterForm";
 import RecentForumPost from "../../Components/RecentForumPost/RecentForumPost";
 import MotivationBanner from "../../Components/motivationBanner/MotivationBanner";
+import Status from "../../Components/Status/Status";
 
 const Home = () => {
   window.scrollTo(0, 0);
@@ -18,6 +19,7 @@ const Home = () => {
         <title>Workout - Home</title>
       </Helmet>
       <CarouselBanner />
+      <Status/>
       <Featured />
       <FeaturedClasses />
      <MotivationBanner/>
