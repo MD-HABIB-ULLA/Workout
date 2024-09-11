@@ -108,14 +108,13 @@ const RecentForumPost = () => {
       <div className=" py-10 w-full space-y-4 max-w-7xl m-auto px-5 md:px-10 ">
         <div className="grid grid-cols-3  gap-7 ">
           <div className=" overflow-hidden rounded-3xl ">
-            <div
-              className="h-full w-full bg-cover bg-top bg-no-repeat hover:bg-zoom"
-              style={{
-                backgroundImage:
-                  "url(https://i.ibb.co.com/4JYj3N8/blog-001-495x700.jpg)",
-              }}
-            >
-              <div className="h-full w-full bg-gradient-to-t p-4 from-[#007bff]/35 to-transparent">
+            <div className="h-full relative w-full group   bg-cover bg-top bg-no-repeat hover:bg-zoom">
+              <img
+                src="https://i.ibb.co.com/4JYj3N8/blog-001-495x700.jpg"
+                className="h-full w-full object-cover group-hover:scale-105 duration-500 object-top"
+                alt=""
+              />
+              <div className="h-full absolute top-0 w-full  bg-gradient-to-t p-4 from-[#007bff]/35 to-transparent">
                 <div className=" h-full flex items-end">
                   <div>
                     <div className="flex items-center gap-4 mb-3">
@@ -147,14 +146,13 @@ const RecentForumPost = () => {
             </div>
           </div>
           <div className=" overflow-hidden rounded-3xl ">
-            <div
-              className="h-full w-full bg-cover bg-top  bg-no-repeat hover:bg-zoom duration-500 "
-              style={{
-                backgroundImage:
-                  "url(https://i.ibb.co.com/RCbddN8/blog-002-495x700.jpg)",
-              }}
-            >
-              <div className="h-full w-full bg-gradient-to-t p-4 from-[#007bff]/35 to-transparent">
+            <div className="h-full relative w-full group   bg-cover bg-top bg-no-repeat hover:bg-zoom">
+              <img
+                src="https://i.ibb.co.com/RCbddN8/blog-002-495x700.jpg"
+                className="h-full w-full object-cover group-hover:scale-105 duration-500 object-top"
+                alt=""
+              />
+              <div className="h-full absolute top-0 w-full  bg-gradient-to-t p-4 from-[#007bff]/35 to-transparent">
                 <div className=" h-full flex items-end">
                   <div>
                     <div className="flex items-center gap-4 mb-3">
@@ -187,12 +185,14 @@ const RecentForumPost = () => {
           </div>
 
           <div className="h-full w-full    space-y-7 0">
-            <div className="flex gap-3 w-full ">
-              <img
-                src="https://i.ibb.co.com/1KnxHrw/blog-02-500x500.jpg"
-                alt=""
-                className="h-32 w-32 rounded-3xl"
-              />
+            <div className="flex gap-3 w-full group ">
+              <div className="h-32 w-32 rounded-3xl overflow-hidden">
+                <img
+                  src="https://i.ibb.co.com/1KnxHrw/blog-02-500x500.jpg"
+                  alt=""
+                  className="h-full w-full rounded-3xl duration-500 group-hover:scale-105 dur"
+                />
+              </div>
               <div className="flex-1 text-white hover:text-[#007bff] cursor-pointer duration-300 flex justify-evenly flex-col">
                 <p className="text-[12px] headline  text-white\ w-full">
                   Exploring the Vast World of Yoga: A Comprehensive Guide to
@@ -216,12 +216,14 @@ const RecentForumPost = () => {
                 </div>
               </div>
             </div>
-            <div className="flex gap-3 w-full ">
-              <img
-                src="https://i.ibb.co.com/ZKrg0Jg/blog-03-500x500.jpg"
-                alt=""
-                className="h-32 w-32 rounded-3xl"
-              />
+            <div className="flex gap-3 w-full group ">
+              <div className="h-32 w-32 rounded-3xl overflow-hidden">
+                <img
+                  src="https://i.ibb.co.com/ZKrg0Jg/blog-03-500x500.jpg"
+                  alt=""
+                  className="h-full w-full rounded-3xl duration-500 group-hover:scale-105 dur"
+                />
+              </div>
               <div className="flex-1 text-white hover:text-[#007bff] cursor-pointer duration-300 flex justify-evenly flex-col">
                 <p className="text-[12px] headline  text-white\ w-full">
                   Exploring the Vast World of Yoga: A Comprehensive Guide to
@@ -245,12 +247,14 @@ const RecentForumPost = () => {
                 </div>
               </div>
             </div>
-            <div className="flex gap-3 w-full ">
-              <img
-                src="https://i.ibb.co.com/YWm5FHt/blog-01.jpg"
-                alt=""
-                className="h-32 w-32 rounded-3xl"
-              />
+            <div className="flex gap-3 w-full group ">
+              <div className="h-32 w-32 rounded-3xl overflow-hidden">
+                <img
+                  src="https://i.ibb.co.com/YWm5FHt/blog-01.jpg"
+                  alt=""
+                  className="h-full w-full rounded-3xl duration-500 group-hover:scale-105 dur"
+                />
+              </div>
               <div className="flex-1 text-white hover:text-[#007bff] cursor-pointer duration-300 flex justify-evenly flex-col">
                 <p className="text-[12px] headline  text-white\ w-full">
                   Exploring the Vast World of Yoga: A Comprehensive Guide to
@@ -274,12 +278,14 @@ const RecentForumPost = () => {
                 </div>
               </div>
             </div>
-            <div className="flex gap-3 w-full ">
-              <img
-                src="https://i.ibb.co.com/F6WvCmL/blog-04.jpg"
-                alt=""
-                className="h-32 w-32 rounded-3xl"
-              />
+            <div className="flex gap-3 w-full group ">
+              <div className="h-32 w-32 rounded-3xl overflow-hidden">
+                <img
+                  src="https://i.ibb.co.com/F6WvCmL/blog-04.jpg"
+                  alt=""
+                  className="h-full w-full rounded-3xl duration-500 group-hover:scale-105 dur"
+                />
+              </div>
               <div className="flex-1 text-white hover:text-[#007bff] cursor-pointer duration-300 flex justify-evenly flex-col">
                 <p className="text-[12px] headline  text-white\ w-full">
                   Exploring the Vast World of Yoga: A Comprehensive Guide to
@@ -303,7 +309,6 @@ const RecentForumPost = () => {
                 </div>
               </div>
             </div>
-              
           </div>
         </div>
       </div>
