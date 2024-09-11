@@ -106,8 +106,8 @@ const RecentForumPost = () => {
         </div>
       </div>
       <div className=" py-10 w-full space-y-4 max-w-7xl m-auto px-5 md:px-10 ">
-        <div className="grid grid-cols-3  gap-7 ">
-          <div className=" overflow-hidden rounded-3xl ">
+        <div className="grid md:grid-cols-3 grid-cols-2  md:gap-7 gap-3 ">
+          <div className=" overflow-hidden rounded-3xl md:h-full h-72  ">
             <div className="h-full relative w-full group   bg-cover bg-top bg-no-repeat hover:bg-zoom">
               <img
                 src="https://i.ibb.co.com/4JYj3N8/blog-001-495x700.jpg"
@@ -136,7 +136,7 @@ const RecentForumPost = () => {
                         </div>
                       </div>
                     </div>
-                    <p className="text-white font-extrabold text-xl duration-300 cursor-pointer headline hover:text-[#007bff]">
+                    <p className="text-white md:text-xl text-sm font-extrabold  duration-300 cursor-pointer headline hover:text-[#007bff]">
                       Exploring the Vast World of Yoga: A Comprehensive Guide to
                       Different Types
                     </p>
@@ -174,7 +174,7 @@ const RecentForumPost = () => {
                         </div>
                       </div>
                     </div>
-                    <p className="text-white font-extrabold text-xl duration-300 cursor-pointer headline hover:text-[#007bff]">
+                    <p className="text-white font-extrabold md:text-xl text-sm duration-300 cursor-pointer headline hover:text-[#007bff]">
                       Exploring the Vast World of Yoga: A Comprehensive Guide to
                       Different Types
                     </p>
@@ -184,7 +184,7 @@ const RecentForumPost = () => {
             </div>
           </div>
 
-          <div className="h-full w-full    space-y-7 0">
+          <div className="h-full w-full col-span-2 md:col-span-1   md:space-y-7 space-y-3">
             <div className="flex gap-3 w-full group ">
               <div className="h-32 w-32 rounded-3xl overflow-hidden">
                 <img
