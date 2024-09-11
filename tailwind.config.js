@@ -12,6 +12,7 @@ export default {
         secondary: '#333333', // Dark Grey
         accent: '#F0F0F0',    // Light Grey
       },
+     
     },
   },
   plugins: [
