@@ -19,10 +19,10 @@ const Home = () => {
         <title>Workout - Home</title>
       </Helmet>
       <CarouselBanner />
-      <Status/>
+      <Status />
       <Featured />
       <FeaturedClasses />
-     <MotivationBanner/>
+      <MotivationBanner />
       <Trainer />
       <Title />
       <Gallery />
