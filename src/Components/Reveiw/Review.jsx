@@ -204,6 +204,13 @@ const Review = () => {
             >
               <span className="block h-2 w-2 rounded-full bg-[#007bff] opacity-70 ring-1 ring-slate-700 transition-colors duration-300 focus:outline-none"></span>
             </button>
+            <button
+              className="group p-4"
+              data-glide-dir="=3"
+              aria-label="goto slide 4"
+            >
+              <span className="block h-2 w-2 rounded-full bg-[#007bff] opacity-70 ring-1 ring-slate-700 transition-colors duration-300 focus:outline-none"></span>
+            </button>
           </div>
         </div>
       </div>
