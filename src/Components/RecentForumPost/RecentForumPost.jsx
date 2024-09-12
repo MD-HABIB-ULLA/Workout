@@ -106,8 +106,8 @@ const RecentForumPost = () => {
         </div>
       </div>
       <div className=" py-10 w-full space-y-4 max-w-7xl m-auto px-5 md:px-10 ">
-        <div className="grid md:grid-cols-3 grid-cols-2  md:gap-7 gap-3 ">
-          <div className=" overflow-hidden rounded-3xl md:h-full h-72  ">
+        <div className="grid lg:grid-cols-3 grid-cols-2  md:gap-7 gap-3 ">
+          <div className=" overflow-hidden rounded-3xl lg:h-full h-72  ">
             <div className="h-full relative w-full group   bg-cover bg-top bg-no-repeat hover:bg-zoom">
               <img
                 src="https://i.ibb.co.com/4JYj3N8/blog-001-495x700.jpg"
@@ -145,7 +145,7 @@ const RecentForumPost = () => {
               </div>
             </div>
           </div>
-          <div className=" overflow-hidden rounded-3xl ">
+          <div className=" overflow-hidden rounded-3xl lg:h-full h-72">
             <div className="h-full relative w-full group   bg-cover bg-top bg-no-repeat hover:bg-zoom">
               <img
                 src="https://i.ibb.co.com/RCbddN8/blog-002-495x700.jpg"
@@ -184,7 +184,7 @@ const RecentForumPost = () => {
             </div>
           </div>
 
-          <div className="h-full w-full col-span-2 md:col-span-1   md:space-y-7 space-y-3">
+          <div className="h-full w-full col-span-2 lg:col-span-1 lg:block md:grid md:grid-cols-2   md:space-y-7 space-y-3">
             <div className="flex gap-3 w-full group ">
               <div className="h-32 w-32 rounded-3xl overflow-hidden">
                 <img
