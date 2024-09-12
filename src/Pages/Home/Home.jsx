@@ -11,6 +11,7 @@ import RecentForumPost from "../../Components/RecentForumPost/RecentForumPost";
 import MotivationBanner from "../../Components/motivationBanner/MotivationBanner";
 import Status from "../../Components/Status/Status";
 import ProductDisplay from "../../Components/ProductDisplay/ProductDisplay";
+import Fade from "../../Components/Carousel/SecondSlider";
 
 const Home = () => {
   window.scrollTo(0, 0);
@@ -20,12 +21,13 @@ const Home = () => {
         <title>Workout - Home</title>
       </Helmet>
       <CarouselBanner />
+      {/* <Fade /> */}
       <Status />
       <Featured />
       <FeaturedClasses />
       <MotivationBanner />
       <Trainer />
-      <ProductDisplay/>
+      <ProductDisplay />
       <Title />
       <Gallery />
       <Review />

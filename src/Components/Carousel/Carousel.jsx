@@ -1,13 +1,12 @@
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Link } from "react-router-dom";
-
+import Fade from "./SecondSlider";
 
 const CarouselBanner = () => {
   return (
     <>
       <div className="relative h-[250px] md:h-96 lg:h-screen ">
-        <div className="h-full   absolute w-full bg-black/20   z-30">
+        <div className="h-full   absolute w-full bg-black/30   z-30">
           <div className="h-full     flex items-center   ">
             <div className="my-auto    bg-opacity-50   text-center mx-auto">
               <div className="max-w-7xl m-auto w-full     space-y-5 lg:p-0 md:p-10 p-5">
@@ -33,52 +32,8 @@ const CarouselBanner = () => {
               </div>
             </div>
           </div>
-        </div>{" "}
-        <Carousel
-          showArrows={false}
-          showIndicators={false}
-          showStatus={false}
-          infiniteLoop
-          autoPlay
-          transitionTime={1000}
-          emulateTouch
-          stopOnHover
-          swipeable={false}
-
-        >
-          <div
-            className="h-[250px] md:h-96 lg:h-screen    relative  bg-top bg-cover "
-            style={{
-              backgroundImage:
-                "url(https://i.ibb.co/qRdnCyp/background-image.png)",
-            }}
-          >
-            <h1 className="lg:block hidden  uppercase text-6xl mt-0 absolute rotate-90 -right-20 outline-text-gym top-1/2  -z-30">
-              workout
-            </h1>
-          </div>
-          <div
-            className="h-full relative  bg-top bg-cover "
-            style={{
-              backgroundImage: "url(https://i.ibb.co/bbHTGYd/footer-bg.jpg)",
-            }}
-          >
-            <h1 className="lg:block hidden  uppercase text-6xl mt-0 absolute rotate-90 -right-20 outline-text-gym top-1/2  -z-30">
-              workout
-            </h1>
-          </div>
-          <div
-            className="h-full relative  bg-top bg-cover "
-            style={{
-              backgroundImage: "url(https://i.ibb.co/gw55gCX/hero.jpg)",
-            }}
-          >
-            <h1 className="lg:block hidden  uppercase text-6xl mt-0 absolute rotate-90 -right-20 outline-text-gym top-1/2  -z-30">
-              workout
-            </h1>
-          </div>
-         
-        </Carousel>
+        </div>
+        <Fade />
       </div>
     </>
   );
