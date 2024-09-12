@@ -23,7 +23,7 @@ const ProductDisplay = () => {
           </div>
           <div className=" text-center space-y-2 mt-5 py-3">
             <h1 className="font-bold text-white">Smart Watches</h1>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 md:block hidden" >
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic,
               aspernatur!
             </p>
@@ -51,7 +51,7 @@ const ProductDisplay = () => {
           </div>
           <div className=" text-center space-y-2 mt-5 py-3">
             <h1 className="font-bold text-white">Smart Watches</h1>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 md:block hidden">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic,
               aspernatur!
             </p>
@@ -79,7 +79,7 @@ const ProductDisplay = () => {
           </div>
           <div className=" text-center space-y-2 mt-5 py-3">
             <h1 className="font-bold text-white">Smart Watches</h1>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 md:block hidden">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic,
               aspernatur!
             </p>
@@ -107,7 +107,7 @@ const ProductDisplay = () => {
           </div>
           <div className=" text-center space-y-2 mt-5 py-3">
             <h1 className="font-bold text-white">Smart Watches</h1>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 md:block hidden">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic,
               aspernatur!
             </p>
