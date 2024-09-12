@@ -1,3 +1,6 @@
+import { FaArrowAltCircleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 const ProductDisplay = () => {
   return (
     <div className="max-w-7xl m-auto md:px-10 px-5  ">
@@ -6,12 +9,10 @@ const ProductDisplay = () => {
           Product
         </h1>
         <h1 className="lg:text-6xl md:text-5xl text-2xl text-center text-white uppercase">
-          Our latest <br />{" "}
-          <span className="text-[#007BFF]">Products</span> 
+          Our latest <br /> <span className="text-[#007BFF]">Products</span>
         </h1>
-        
       </div>
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid lg:grid-cols-4 grid-cols-2 gap-2">
         <div className="border-[1px] border-gray-500/35 rounded-2xl p-3  shadow-md shadow-black group">
           <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg">
             <img
@@ -124,6 +125,15 @@ const ProductDisplay = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex items-center justify-center pb-5">
+        {" "}
+        <Link className="" to={"/products"}>
+          {" "}
+          <button className=" flex items-center gap-2 px-4 p-2 mt-5 rounded-full border bg-[#007BFF] font-bold border-[#007BFF] bt text-white hover:bg-transparent hover:text-[#007BFF] duration-500">
+            View All Products <FaArrowAltCircleRight />
+          </button>
+        </Link>
       </div>
     </div>
   );
