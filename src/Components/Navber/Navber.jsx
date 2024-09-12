@@ -136,6 +136,22 @@ const Navber = () => {
               <div className="md:block hidden  ">
                 <ul className="flex space-x-5 ">{list}</ul>
               </div>
+              <div className="flex gap-3 items-center">
+                <div>
+                  <img
+                    src="https://i.ibb.co.com/t2CmCwk/shopping-cart.png"
+                    alt=""
+                    className="h-7 w-7  "
+                  />
+                </div>
+                <div>
+                  <img
+                    src="https://i.ibb.co.com/MDLhbYW/wish-list.png"
+                    alt=""
+                    className=" h-7 w-7  "
+                  />
+                </div>
+              </div>
               <div className="flex items-center">
                 {!loading ? (
                   user ? (
