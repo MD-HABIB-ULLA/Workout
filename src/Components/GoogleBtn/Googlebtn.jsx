@@ -48,7 +48,7 @@ const Googlebtn = () => {
         {" "}
         <div
           onClick={handleGoogleBtn}
-          className="cursor-pointer bg-white rounded-full p-1 flex gap-1 text-black items-center pr-3"
+          className="cursor-pointer bg-white border border-black/25 rounded-full p-1 flex gap-1 text-black items-center pr-3"
         >
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjzC2JyZDZ_RaWf0qp11K0lcvB6b6kYNMoqtZAQ9hiPZ4cTIOB"

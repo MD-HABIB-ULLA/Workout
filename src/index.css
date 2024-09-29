@@ -136,3 +136,7 @@ html {
   scrollbar-width: thin !important;
   scrollbar-color: #007bff #141414 !important
 }
+
+.anton{
+  font-family: "Anton", sans-serif;
+}
