@@ -16,7 +16,6 @@ const CheckOutForm = () => {
   const stripe = useStripe();
   const navigate = useNavigate()
   console.log(paymentData)
-
   useEffect(() => {
     if (paymentData.price > 0) {
       axiosPublic
