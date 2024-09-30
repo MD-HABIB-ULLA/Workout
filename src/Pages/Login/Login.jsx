@@ -28,7 +28,7 @@ const Login = () => {
   const onSubmit = (data, e) => {
     signOutUser();
     signInUser(data.email, data.password)
-      .then((result) => {
+      .then(() => {
         toast.success("Login sucsessful");
         e.target.reset();
         navigate(location?.state ? location.state : "/");
