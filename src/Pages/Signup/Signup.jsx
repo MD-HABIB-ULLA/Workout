@@ -53,7 +53,6 @@ const Signup = () => {
                     .post("/users", userInfo)
                     .then((res) => {
                       if (res.data.insertedId) {
-
                         navigate("/");
                       } else {
                         navigate("/");
@@ -96,27 +95,34 @@ const Signup = () => {
   };
 
   return (
-    <div
-      style={{
-        backgroundImage:
-          "Url(https://fitflex.axiomthemes.com/wp-content/uploads/2023/11/185_2-3-copyright.jpg)",
-      }}
-      className="bg-cover bg-center min-h-screen py-32 "
-    >
+    <div className="bg-cover bg-center min-h-screen py-32 ">
       <Helmet>
         <title>Workout - Signup</title>
       </Helmet>
       <div className="md:flex h-full w-full justify-center  container m-auto ">
-        <div className="">
-          <section className="">
-            <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-              <div className="md:w-[40vw] w-full bg-black bg-opacity-40 backdrop-blur-md duration-500 text-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
-                <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                  <h1 className="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl">
+        <div className=" w-full">
+          <section className="w-full">
+            <div className="grid  w-[85%] m-auto bg-gray-700 md:grid-cols-2 grid-cols-1 rounded-3xl overflow-hidden">
+              <div
+                className="bg-center bg-cover relative overflow-hidden "
+                style={{
+                  backgroundImage:
+                    "url(https://ehuupfv6enn.exactdn.com/wp-content/uploads/2022/05/HLC-34.jpg?strip=all&lossy=1&w=1920&ssl=1)",
+                }}
+              >
+                <div className="h-full absolute  flex justify-end items-end -bottom-16 left-0">
+                  <p className="text-[130px] anton uppercase text-nowrap   font-extrabold text-[#141414] tracking-widest">
+                    Sign up{" "}
+                  </p>
+                </div>
+              </div>
+              <div className=" w-full bg-white duration-500 text-black  shadow md:mt-0 ">
+                <div className="p-6  md:space-y-2 sm:p-8">
+                  <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
                     Sign up now
                   </h1>
                   <form
-                    className="space-y-4 md:space-y-6"
+                    className="space-y-1 md:space-y-2"
                     action="#"
                     onSubmit={handleSubmit(onSubmit)}
                   >
@@ -124,7 +130,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="name"
-                        className="block mb-2 text-sm font-medium text-white"
+                        className="block mb-2 text-sm  text-black font-bold"
                       >
                         Your Name
                       </label>
@@ -145,7 +151,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="email"
-                        className="block mb-2 text-sm font-medium text-white"
+                        className="block mb-2 text-sm  text-black font-bold"
                       >
                         Your Email
                       </label>
@@ -166,7 +172,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="password"
-                        className="block mb-2 text-sm font-medium text-white"
+                        className="block mb-2 text-sm  text-black font-bold"
                       >
                         Password
                       </label>
@@ -205,7 +211,7 @@ const Signup = () => {
                     <div>
                       <label
                         htmlFor="image"
-                        className="block mb-2 text-sm font-medium text-white"
+                        className="block mb-2 text-sm  text-black font-bold"
                       >
                         Your Image
                       </label>
@@ -230,7 +236,7 @@ const Signup = () => {
                     </button>
                   </form>
                   <Googlebtn />
-                  <div className="text-sm font-light text-white">
+                  <div className="text-sm font-light  text-black font-bold text-center">
                     Already have an account yet?
                     <Link
                       to={"/login"}
