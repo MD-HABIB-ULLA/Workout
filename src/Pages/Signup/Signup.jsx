@@ -11,7 +11,7 @@ import useAxiosPablic from "../../Hooks/useAxiosPpablic";
 
 const Signup = () => {
   const axiosPublic = useAxiosPablic();
-  const { creatNewUser, loading, setLoading, updateUserProfile } = useAuth();
+  const { creatNewUser,  setLoading, updateUserProfile } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
